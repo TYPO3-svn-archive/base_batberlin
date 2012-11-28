@@ -1,0 +1,277 @@
+
+
+  ////////////////////////////////////////
+  //
+  // INDEX
+
+  // SEO - Search Engine Optimisation
+  //    page
+  //    plugin.tx_browser_pi1
+  // jq_fancybox for plugin.tx_browser_pi1
+  // plugin.tx_browser_pi1
+  // plugin.tx_linkhandler
+  // Header Comment
+
+
+
+
+  ////////////////////////////////////////////////////////////////////////////////
+  //
+  // SEO - Search Engine Optimisation
+
+  //    showUid
+  //    calendarUid
+  //    headquarterUid
+  //    locationUid
+  //    departmentUid
+  //    newsUid
+  //    repertoireUid
+  //    staffUid
+
+  // page
+[globalVar = GP:tx_browser_pi1|showUid > 0] || [globalVar = GP:tx_browser_pi1|calendarUid > 0] || [globalVar = GP:tx_browser_pi1|departmentUid > 0] || [globalVar = GP:tx_browser_pi1|headquarterUid > 0] || [globalVar = GP:tx_browser_pi1|locationUid > 0] || [globalVar = GP:tx_browser_pi1|newsUid > 0] || [globalVar = GP:tx_browser_pi1|repertoireUid > 0] || [globalVar = GP:tx_browser_pi1|staffUid > 0]
+  page {
+    config {
+      noPageTitle = 2
+    }
+    headerData {
+      20 = TEXT
+      20 {
+        data = register:browser_htmlTitleTag
+        ifEmpty {
+          field = title
+          noTrimWrap  = |HfS-Berlin: ||
+        }
+        wrap = <title>|</title>
+      }
+    }
+    meta {
+      description {
+        field >
+        data = register:browser_description
+      }
+      keywords {
+        field >
+        data = register:browser_keywords
+      }
+    }
+  }
+[global]
+  // page
+
+  // plugin.tx_browser_pi1
+plugin.tx_browser_pi1 {
+
+  displayList {
+    seo {
+      htmlHead {
+      title = 1
+        meta {
+          description = 1
+          keywords    = 1
+        }
+      }
+    }
+  }
+  displaySingle {
+    seo {
+      htmlHead {
+      title = 1
+        meta {
+          description = 1
+          keywords    = 1
+        }
+      }
+    }
+  }
+}
+  // plugin.tx_browser_pi1
+  // SEO - Search Engine Optimisation
+
+
+
+  ////////////////////////////////////////////////////////////////////////////////
+  //
+  // jq_fancybox for plugin.tx_browser_pi1
+
+plugin.tx_browser_pi1 {
+
+    // dwildt, 110123
+  general_stdWrap.parseFunc >
+  general_stdWrap.parseFunc < lib.parseFunc_RTE
+
+  displayList {
+    image {
+      wrap = |
+      imageLinkWrap >
+      imageLinkWrap = 1
+      imageLinkWrap {
+        enable = 1
+        typolink {
+          parameter.cObject = IMG_RESOURCE
+          parameter.cObject.file.import.data = TSFE:lastImageInfo|origFile
+          parameter.override.field = image_link
+          parameter.override.listNum.stdWrap.data = register : IMAGE_NUM_CURRENT
+          parameter.override.if.isTrue.field = image_link
+          title.field = imagecaption // header
+          title.split.token.char = 10
+          title.split.returnKey.data = register : IMAGE_NUM_CURRENT
+          ATagParams = rel="fancybox"  class="jqfancybox"
+          ATagParams.override = rel="fancybox{field:uid}" class="jqfancybox"
+          ATagParams.insertData = 1
+        }
+      }
+    }
+    imageWrapIfAny = <div class="thumb">|</div>
+  }
+  displaySingle {
+    image {
+      wrap = |
+      imageLinkWrap >
+      imageLinkWrap = 1
+      imageLinkWrap {
+        enable = 1
+        typolink {
+          parameter.cObject = IMG_RESOURCE
+          parameter.cObject.file.import.data = TSFE:lastImageInfo|origFile
+          parameter.override.field = image_link
+          parameter.override.listNum.stdWrap.data = register : IMAGE_NUM_CURRENT
+          parameter.override.if.isTrue.field = image_link
+          title.field = imagecaption // header
+          title.split.token.char = 10
+          title.split.returnKey.data = register : IMAGE_NUM_CURRENT
+          ATagParams = rel="fancybox"  class="jqfancybox"
+          ATagParams.override = rel="fancybox{field:uid}" class="jqfancybox"
+          ATagParams.insertData = 1
+        }
+      }
+    }
+    imageWrapIfAny = <div class="thumb">|</div>
+  }
+}
+  // jq_fancybox
+
+
+
+  ////////////////////////////////////////////////////////////////////////////////
+  //
+  // plugin.tx_browser_pi1
+
+plugin.tx_browser_pi1 {
+
+  a-z_Browser {
+    tabs {
+      2 {
+        valuesCSV = A,Ä,a,ä
+      }
+      16 {
+        valuesCSV = O,Ö,o,ö
+      }
+      21 {
+        valuesCSV = U,Ü,u,ü
+      }
+    }
+  }
+
+  pageBrowser.showResultCount = 0
+
+  general_stdWrap {
+    parseFunc {
+      allowTags = {$styles.content.links.allowTags},table,td,tr,small,iframe,option
+      externalBlocks {
+        comment (
+          div > 
+          Denn div soll nicht automatisch mit </div> ergaenzt werden.
+          Siehe 301: Repertoire - tx_org_cal.datetime
+        )
+        div >
+      }
+    }
+  }
+
+  displayList.selectBox_orderBy.selectbox.wrap.item.stdWrap.htmlSpecialChars = 0
+  
+  document_stdWrap.stdWrap.noTrimWrap = |<li>|</li> |
+
+  marker {
+    my_back_button = TEXT
+    my_back_button {
+      value = Back
+      lang.de = Zur&uuml;ck
+      noTrimWrap  = |<a href="javascript:history.back()">&laquo; |</a>|
+    }
+  }
+  
+  //_CSS_DEFAULT_STYLE >
+
+  _LOCAL_LANG {
+    default {
+      label_sword_default       = Search Word
+      pi_list_searchBox_search  = Search!
+    }
+    de {
+      label_sword_default       = Suchbegriff
+      pi_list_searchBox_search  = Suchen!
+    }
+  }
+}
+  // plugin.tx_browser_pi1
+
+
+
+  ////////////////////////////////////////////////////////////////////////////////
+  //
+  // plugin.tx_linkhandler
+
+plugin.tx_linkhandler {
+  fe_users {
+    forceLink        = 0
+    useCacheHash     = 1
+    parameter        = {$plugin.org.pages.staff}
+    additionalParams = &tx_browser_pi1[staffUid]={field:uid}
+    additionalParams {
+      insertData = 1
+    } 
+  }
+  tx_org_cal < .fe_users
+  tx_org_cal {
+    parameter        = {$plugin.org.pages.calendar}
+    additionalParams = &tx_browser_pi1[calendarUid]={field:uid}
+  }
+  tx_org_headquarters < .fe_users
+  tx_org_headquarters {
+    parameter        = {$plugin.org.pages.headquarter}
+    additionalParams = &tx_browser_pi1[headquarterUid]={field:uid}
+  }
+  tx_org_location < .fe_users
+  tx_org_location {
+    parameter        = {$plugin.org.pages.location}
+    additionalParams = &tx_browser_pi1[locationUid]={field:uid}
+  }
+  tx_org_department < .fe_users
+  tx_org_department {
+    parameter        = {$plugin.org.pages.department}
+    additionalParams = &tx_browser_pi1[departmentUid]={field:uid}
+  }
+  tx_org_news < .fe_users
+  tx_org_news {
+    parameter        = {$plugin.org.pages.news}
+    additionalParams = &tx_browser_pi1[newsUid]={field:uid}
+  }
+  tx_org_repertoire < .fe_users
+  tx_org_repertoire {
+    parameter        = {$plugin.org.pages.repertoire}
+    additionalParams = &tx_browser_pi1[repertoireUid]={field:uid}
+  }
+}
+
+
+
+  ////////////////////////////////////////////////////////////////////////////////
+  //
+  // Header Comment
+
+page.config.headerComment (
+        TYPO3-Programmierung: die-netzmacher.de
+)
+  // Header Comment

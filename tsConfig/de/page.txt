@@ -1,0 +1,50 @@
+
+  /////////////////////////////////////
+  //
+  // INDEX
+  // =====
+  // LINKHANDLER
+  // - mod.tx_linkhandler
+  // - RTE.default.tx_linkhandler
+  // mod
+  // TCEFORM
+  // RTE
+
+
+
+  /////////////////////////////////////
+  //
+  // LINKHANDLER
+
+  // mod.tx_linkhandler
+mod.tx_linkhandler {
+    // extension tt_news isn't installed
+  org_news {
+    label       = HfS: Nachrichten
+  }
+  fe_users {
+    label       = HfS: Personal
+  }
+  org_repertoire {
+    label       = HfS: Repertoire
+  }
+  org_cal {
+    label       = HfS: Spielplan
+  }
+  org_headquarters {
+    label       = HfS: Standorte, Abteilungen
+  }
+  org_location {
+    label       = HfS: Veranstaltungsorte
+  }
+}
+  // mod.tx_linkhandler
+
+  // RTE.default.tx_linkhandler
+  // Remove default configuration
+RTE.default.tx_linkhandler >
+  // Copy configuration from mod
+RTE.default.tx_linkhandler < mod.tx_linkhandler
+  // RTE.default.tx_linkhandler
+
+  // LINKHANDLER

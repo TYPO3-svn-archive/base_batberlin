@@ -1,0 +1,345 @@
+
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  //
+  // INDEX
+  
+  // config
+  // plugin.tx_automaketemplate_pi1
+  // plugin.tx_rlmptmplselector_pi1
+  // plugin.tx_browser_pi1
+  // tt_content.table
+  // page
+  // Search Engine Optimisation
+  // * [globalVar = GP:tx_browser_pi1|showUid > 0] || [globalVar = GP:tx_browser_pi1|calendarUid > 0] || [globalVar = GP:tx_browser_pi1|departmentUid > 0] || [globalVar = GP:tx_browser_pi1|headquarterUid > 0] || [globalVar = GP:tx_browser_pi1|locationUid > 0] || [globalVar = GP:tx_browser_pi1|newsUid > 0] || [globalVar = GP:tx_browser_pi1|repertoireUid > 0] || [globalVar = GP:tx_browser_pi1|staffUid > 0]
+  // [globalVar = TSFE:page|tx_rlmptmplselector_main_tmpl = XX]
+  // [globalVar = TSFE:page|tx_rlmptmplselector_ca_tmpl = XX]
+
+
+
+  ///////////////////////////////////////////
+  //
+  // config
+
+config {
+  admPanel        = 1
+  baseURL         = {$base_batBerlin.htmlhead.base_href}
+  extTarget       = _blank
+
+  headerComment (
+        TYPO3-Programmierung und Hosting: die-netzmacher.de
+)  
+
+  language        = de
+  locale_all      = de_DE@euro, de_DE, de, ge
+  metaCharset     = UTF-8
+  doctype         = xhtml_strict
+  xhtml_cleaning  = all
+  htmlTag_langKey = de
+
+  spamProtectEmailAddresses               = 6
+  spamProtectEmailAddresses_atSubst       = <span style="display:none;">spamfilter</span><span class="dummy">@</span>
+  spamProtectEmailAddresses_lastDotSubst  = <span style="display:none;">spamfilter</span><span class="dummy">.</span>
+
+  tx_realurl_enable = 1
+}
+  // config
+
+
+
+  //////////////////////////////////////////////
+  //
+  // plugin.tx_automaketemplate_pi1
+
+plugin.tx_automaketemplate_pi1 {
+
+  content = FILE
+  content.file = {$base_batBerlin.path.html}
+
+  elements {
+    BODY.all = 1
+    BODY.all.subpartMarker = DOCUMENT_BODY
+
+    HEAD.all = 1
+    HEAD.all.subpartMarker = DOCUMENT_HEADER
+    HEAD.rmTagSections = title
+
+    DIV.all = 1
+  }
+
+  relPathPrefix = {$base_batBerlin.path.res}
+}
+  // plugin.tx_automaketemplate_pi1
+
+
+
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  //
+  // plugin.tx_rlmptmplselector_pi1
+
+plugin.tx_rlmptmplselector_pi1 {
+
+  comment (
+    We don't use pi1 of this extension.
+    We control every thing by GLOBALS.
+  )
+  // Remove properties which aren't needed in "ts"-mode
+  includeLibs >
+  userFunc    >
+  templatePathMain            >
+  templatePathSub             >
+  defaultTemplateFileNameMain >
+  defaultTemplateFileNameSub  >
+  
+  defaultTemplateObjectMain >
+  defaultTemplateObjectSub  >
+  
+  inheritMainTemplates >
+  inheritSubTemplates  >
+  
+
+  //templateType = sub
+  templateObjects {
+    main {
+      // Default
+      100 = TEMPLATE
+      100 {
+        tx_rlmptmplselector {
+          title     = BAT Layout
+          imagefile = bat.gif
+        }
+      }
+    }
+    sub {
+      // Home: 66 / 33 and news (two columns and news)
+      100 = TEMPLATE
+      100 {
+        workOnSubpart = DOCUMENT_BODY
+        tx_rlmptmplselector {
+          title     = Standard (2/3, 1/3)
+          imagefile = 66.gif
+        }
+      }
+      // 66 / 33 (two columns)
+      110 = TEMPLATE
+      110 {
+        workOnSubpart = DOCUMENT_BODY
+        tx_rlmptmplselector {
+          title     = Zwei Spalten (2/3, 1/3)
+          imagefile = 66_33.gif
+        }
+      }
+      // 50 / 50 (two columns)
+      120 = TEMPLATE
+      120 {
+        workOnSubpart = DOCUMENT_BODY
+        tx_rlmptmplselector {
+          title     = Zwei Spalten (1/2, 1/2)
+          imagefile = 50_50.gif
+        }
+      }
+      // 100 (one column)
+      130 = TEMPLATE
+      130 {
+        workOnSubpart = DOCUMENT_BODY
+        tx_rlmptmplselector {
+          title     = Eine Spalte
+          imagefile = 100.gif
+        }
+      }
+    }
+  }
+}
+
+[globalVar = TSFE:type = 98]
+  plugin.tx_rlmptmplselector_pi1 {
+  }
+[globalVar = TSFE:type = 123]
+  plugin.tx_rlmptmplselector_pi1 {
+  }
+[global]
+  // plugin.tx_rlmptmplselector_pi1
+
+
+
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  //
+  // plugin.tx_browser_pi1
+
+plugin.tx_browser_pi1 {
+  
+  _CSS_DEFAULT_STYLE >
+  
+  displayList {
+    noItemMessage {
+      wrap = <p style="padding:2em .6em;font-weight:bold;">|</p>
+    }
+    image {
+      // [String] path and file name of the image, which should displayed, if a record hasn't any image #11204
+      file = {$base_batBerlin.path.alternate_image}
+    }
+  }
+  displaySingle {
+    image {
+      // [String] path and file name of the image, which should displayed, if a record hasn't any image #11204
+      file = {$base_batBerlin.path.alternate_image}
+    }
+  }
+  views {
+    list {
+      611 {
+        andWhere (
+             (tx_org_department.pages LIKE {$base_batBerlin.pages.root}
+          OR  tx_org_department.pages LIKE '{$base_batBerlin.pages.root},%'
+          OR  tx_org_department.pages LIKE '%,{$base_batBerlin.pages.root},%'
+          OR  tx_org_department.pages LIKE '%,{$base_batBerlin.pages.root}')
+)
+      }
+    }
+  }
+}
+  // plugin.tx_browser_pi1
+
+
+
+  ///////////////////////////////////////////
+  //
+  // tt_content
+
+tt_content.table.20.stdWrap {
+  addParams {
+    border = 0
+    cellspacing = 0
+    cellpadding = 0
+  }
+}
+  // tt_content
+
+
+
+  ///////////////////////////////////////////
+  //
+  // page
+
+page = PAGE
+page {
+
+  typeNum = 0
+
+  shortcutIcon = {$base_batBerlin.htmlhead.favicon}
+
+  headerData.10 = TEMPLATE
+  headerData.10 {
+    template      =< plugin.tx_automaketemplate_pi1
+    workOnSubpart = DOCUMENT_HEADER
+  }
+
+  includeCSS {
+     styles   = {$base_batBerlin.path.css}
+  }  
+  meta {
+    author = {$base_batBerlin.htmlhead.author}
+    keywords {
+      field    = keywords
+      ifEmpty  = {$base_batBerlin.htmlhead.keywords}
+      keywords = 1
+    }
+    description {
+      field = description
+      ifEmpty (
+        {$base_batBerlin.htmlhead.description}
+      )
+    }
+  }
+
+  bodyTag = <body>
+  10 = TEMPLATE
+  10 {
+    template      =< plugin.tx_automaketemplate_pi1
+    workOnSubpart = DOCUMENT_BODY
+    subparts      < lib.subparts.100
+  }
+}
+  // page
+
+
+
+  ////////////////////////////////////////////////////////////////////////////////
+  //
+  // SEO - Search Engine Optimisation
+
+  //    showUid
+  //    calendarUid
+  //    headquarterUid
+  //    locationUid
+  //    departmentUid
+  //    newsUid
+  //    repertoireUid
+  //    staffUid
+
+  // page
+[globalVar = GP:tx_browser_pi1|showUid > 0] || [globalVar = GP:tx_browser_pi1|calendarUid > 0] || [globalVar = GP:tx_browser_pi1|departmentUid > 0] || [globalVar = GP:tx_browser_pi1|headquarterUid > 0] || [globalVar = GP:tx_browser_pi1|locationUid > 0] || [globalVar = GP:tx_browser_pi1|newsUid > 0] || [globalVar = GP:tx_browser_pi1|repertoireUid > 0] || [globalVar = GP:tx_browser_pi1|staffUid > 0]
+  page {
+    meta {
+      description {
+        field >
+      }
+      keywords {
+        field >
+      }
+    }
+  }
+[global]
+  // SEO - Search Engine Optimisation
+
+
+
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  //
+  // [globalVar = TSFE:page|tx_rlmptmplselector_main_tmpl = XX]
+
+[globalVar = TSFE:page|tx_rlmptmplselector_main_tmpl < 1] || [globalVar = TSFE:page|tx_rlmptmplselector_main_tmpl = 100]
+  plugin.tx_automaketemplate_pi1 {
+    // BAT layout
+    content.file = {$base_batBerlin.path.html}
+  }
+  page {
+    includeCSS {
+      // BAT layout
+      styles   = {$base_batBerlin.path.css}
+    }
+  }
+[global]
+  // [globalVar = TSFE:page|tx_rlmptmplselector_main_tmpl = XX]
+
+
+
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  //
+  // [globalVar = TSFE:page|tx_rlmptmplselector_ca_tmpl = XX]
+
+[globalVar = TSFE:page|tx_rlmptmplselector_ca_tmpl < 1] || [globalVar = TSFE:page|tx_rlmptmplselector_ca_tmpl = 100]
+  page.10 {
+    subparts >
+    // Startseite
+    subparts < lib.subparts.100
+  }
+[globalVar = TSFE:page|tx_rlmptmplselector_ca_tmpl = 110]
+  page.10 {
+    subparts >
+    // 66 / 33 (two columns)
+    subparts < lib.subparts.110
+  }
+[globalVar = TSFE:page|tx_rlmptmplselector_ca_tmpl = 120]
+  page.10 {
+    subparts >
+    // 50 / 50 (two columns)
+    subparts < lib.subparts.120
+  }
+[globalVar = TSFE:page|tx_rlmptmplselector_ca_tmpl = 130]
+  page.10 {
+    subparts >
+    // 100 (one column)
+    subparts < lib.subparts.130
+  }
+[global]
+  // [globalVar = TSFE:page|tx_rlmptmplselector_ca_tmpl = XX]

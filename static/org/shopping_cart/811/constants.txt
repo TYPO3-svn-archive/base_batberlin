@@ -1,0 +1,58 @@
+
+  ////////////////////////////////////////
+  //
+  // INDEX
+
+  // plugin.wtcart
+  // plugin.powermail
+
+
+
+  ////////////////////////////////////////
+  //
+  // plugin.wtcart
+
+
+plugin.wtcart {
+  gpvar {
+    qty  = quantity
+    puid = tx_org_cal|uid
+  }
+  db {
+    table = tx_org_cal
+  }
+}
+  // plugin.wtcart
+
+
+
+  ////////////////////////////////////////
+  //
+  // plugin.powermail
+
+plugin.powermail {
+  allow {
+    email2receiver = 1
+    email2sender   = 1
+  }
+  format {
+    datetime = %H:%M %d.%m.%Y
+    format {
+      .date  = %d.%m.%Y
+    }
+  }
+  label {
+    allowTags =
+  }
+  clear {
+    session = 1
+  }
+  hiddenfields {
+    show = 1,1,1,1,1
+  }
+  field {
+    checkboxJS = 1
+  }
+}
+  // plugin.powermail
+

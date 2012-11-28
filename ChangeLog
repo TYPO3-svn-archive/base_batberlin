@@ -1,0 +1,77 @@
+0.4.8
+  12-11-28
+  Dependencies
+  * #00000: ./. rlmp_tmplselector
+
+0.4.7
+  2012-11-01
+  Improvement
+  * bat: datetime with category
+       Effected file
+         * static/org/calendar/201/setup.txt
+
+0.4.6
+  2011-05-12
+  Improvement
+  * powermail class for label: margin-left:0;
+    res/html/default/css/index.css
+  * calender
+    * ticket form is moved to the top of page
+    * search field with bottoms
+    res/html/org/calendar/201/default.tmpl
+
+0.4.5
+  2011-04-26
+  Bugfixes
+  * /static/org/department/601/setup.txt: tx_org_department.image* added
+  * /static/org/calendar/201/setup.txt: tx_org_cal.datetime.value and ...lang had wrong values (with h and with Uhr)
+
+0.4.4
+  2011-04-06
+  Bugfix
+  * Setup calendar: short -> teaser_short
+  2011-03-21
+  Improvement
+  * Calender
+    * tca.php
+    * ext_tables.php
+    * ext_tables.sql
+    * localllang_db.xml
+    * TypoScript
+    * HTML
+  
+0.3.3
+  2011-02-20
+  Improvement
+  * Proper client specific configuration
+    * Integration of all needed org HTML templates
+    * Integration of all needed org static templates
+  
+0.3.2
+  2011-02-20
+  Improvement
+  * Specific extension icon
+  Maintenance
+  * Red colour is moved to HfS colour: rgb 176 32 21 and web #B02015
+  
+0.3.1
+  2011-02-17
+  Improvement
+  * the browser _CSS_DEFAULT_STYLE is removed
+  
+0.3.0
+  2011-01-20
+  Improvement
+  * Integration of the TypoScript constants into the Constants Editor
+  
+0.2.0
+  2011-01-06
+  Development
+  * Integration of the template selector
+  * Static template for CSS styled content (uploads)
+  * CSS improvement
+  
+0.1.0
+  2010-12-24
+  Dirk Wildt  <http://wildt.at.die-netzmacher.de>
+  * Initial Release

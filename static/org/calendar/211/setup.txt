@@ -1,0 +1,115 @@
+
+
+  ////////////////////////////////////////
+  //
+  // INDEX
+
+  // plugin.tx_browser_pi1
+  //    views
+  //      211: calendar (bat) - right column
+
+
+
+  ////////////////////////////////////////
+  //
+  // plugin.tx_browser_pi1
+
+plugin.tx_browser_pi1 {
+  
+  template {
+    extensions {
+      org {
+        calendar_margin {
+          name      = Org: calendar (bat) - margin
+          file      = EXT:base_batBerlin/res/html/org/calendar/211/default.tmpl
+        }
+      }
+    }
+  }
+
+  views {
+    list {
+      211 = calendar bat (margin)
+      211 {
+        name    = calendar bat - Rand
+        marker < plugin.tx_browser_pi1.marker
+        marker {
+          my_listview_title {
+            wrap = <h3>|</h3>
+            value = Playing schedule
+            lang.de = Spielplan
+            typolink {
+              parameter = {$plugin.org.pages.calendar}
+              title {
+                value = All items
+                lang.de = Alle Eintr&auml;ge
+              }
+            }
+          }
+          my_listview_page = TEXT
+          my_listview_page {
+            value = All items &raquo;
+            lang.de = Alle Eintr&auml;ge &raquo;
+            wrap = <p class="my_listview_page">|</p>
+            typolink {
+              parameter = {$plugin.org.pages.calendar}
+              title {
+                value = All items
+                lang.de = Alle Eintr&auml;ge
+              }
+            }
+          }
+        }
+        select >
+        select (
+          tx_org_cal.datetime,
+          tx_org_repertoire.title,
+          tx_org_repertoire.teaser_title
+        )
+        andWhere  = tx_org_cal.datetime > UNIX_TIMESTAMP() AND tx_org_cal.type LIKE 'tx_org_repertoire'
+        tx_org_cal >
+        tx_org_cal {
+          datetime = COA
+          datetime {
+            wrap = <p>|</p>
+            10 = TEXT
+            10 {
+              value     = ###TX_ORG_CAL.DATETIME###
+              strftime  = %d. %b. %H:%M Uhr
+              wrap      = |<br />
+            }
+            20 = COA
+            20 {
+              10 = TEXT
+              10 {
+                if.isTrue = ###TX_ORG_REPERTOIRE.TEASER_TITLE###
+                value     = ###TX_ORG_REPERTOIRE.TEASER_TITLE###
+                typolink {
+                  parameter = {$plugin.org.pages.calendar}
+                  parameter {
+                    insertData = 1
+                  }
+                  additionalParams = &tx_browser_pi1[calendarUid]=###TX_ORG_CAL.UID###&###CHASH###
+                }
+              }
+              20 = TEXT
+              20 {
+                if.isFalse  = ###TX_ORG_REPERTOIRE.TEASER_TITLE###
+                value       = ###TX_ORG_REPERTOIRE.TITLE###
+                typolink {
+                  parameter = {$plugin.org.pages.calendar}
+                  parameter {
+                    insertData = 1
+                  }
+                  additionalParams = &tx_browser_pi1[calendarUid]=###TX_ORG_CAL.UID###&###CHASH###
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+}
+  // plugin.tx_browser_pi1

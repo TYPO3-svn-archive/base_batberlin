@@ -1,0 +1,49 @@
+
+  /////////////////////////////////////
+  //
+  // LINKHANDLER
+  // - mod.tx_linkhandler
+  // - RTE.default.tx_linkhandler
+
+
+
+  /////////////////////////////////////
+  //
+  // mod.tx_linkhandler
+
+mod.tx_linkhandler {
+    // extension tt_news isn't installed
+  org_cal {
+    label       = HfS: Events
+  }
+  org_headquarters {
+    label       = HfS: Headquarters, Departments
+  }
+  org_location {
+    label       = HfS: Locations
+  }
+  org_news {
+    label       = HfS: News
+  }
+  org_repertoire {
+    label       = HfS: Repertoire
+  }
+  fe_users {
+    label       = HfS: Staff
+  }
+}
+  // mod.tx_linkhandler
+
+
+
+  /////////////////////////////////////
+  //
+  // RTE.default.tx_linkhandler
+
+  // Remove default configuration
+RTE.default.tx_linkhandler >
+  // Copy configuration from mod
+RTE.default.tx_linkhandler < mod.tx_linkhandler
+  // RTE.default.tx_linkhandler
+
+  // LINKHANDLER

@@ -1,0 +1,230 @@
+
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  //
+  // INDEX
+  
+  // temp.tmenu
+  // temp.menuMain
+  // lib.bat.subparts
+
+
+
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  //
+  // temp.tmenu
+
+temp.tmenu = TMENU
+temp.tmenu {
+
+  NO = 1
+  NO.wrapItemAndSub (
+            <li class="no">
+              |
+            </li>
+  )
+  NO.ATagTitle.field = title
+  NO.stdWrap.htmlSpecialChars = 1
+
+  IFSUB = 1
+  IFSUB.wrapItemAndSub (
+            <li class="ifsub">
+              |
+            </li>
+  )
+  IFSUB.ATagTitle.field = title
+  IFSUB.stdWrap.htmlSpecialChars = 1
+  
+  CUR = 1
+  CUR.wrapItemAndSub (
+            <li class="cur">
+              |
+            </li>
+  )
+  CUR.ATagTitle.field = title
+  CUR.stdWrap.htmlSpecialChars = 1
+
+  CURIFSUB = 1
+  CURIFSUB.wrapItemAndSub (
+            <li class="curifsub">
+              |
+            </li>
+  )
+  CURIFSUB.ATagTitle.field = title
+  CURIFSUB.stdWrap.htmlSpecialChars = 1
+  
+  ACT = 1
+  ACT.wrapItemAndSub (
+            <li class="act">
+              |
+            </li>
+  )
+  ACT.ATagTitle.field = title
+  ACT.stdWrap.htmlSpecialChars = 1
+
+  ACTIFSUB = 1
+  ACTIFSUB.wrapItemAndSub (
+            <li class="actifsub">
+              |
+            </li>
+  )
+  ACTIFSUB.ATagTitle.field = title
+  ACTIFSUB.stdWrap.htmlSpecialChars = 1
+
+  SPC = 1
+  SPC {
+    wrapItemAndSub (
+            <li class="spc">
+              &nbsp;
+            </li>
+    )
+    doNotShowLink = 1
+  }
+
+  wrap = <ul>|</ul>
+}
+  // temp.tmenu
+
+
+
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  //
+  // temp.menuMain
+
+temp.menuMain = HMENU
+temp.menuMain {
+  # Menue ab Ebene 1
+  entry.level = 1
+  1 < temp.tmenu
+  2 < temp.tmenu
+  3 < temp.tmenu
+  4 < temp.tmenu
+}
+  // temp.menuMain
+
+
+
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  // 
+  // lib.bat.subparts
+
+lib.subparts {
+  100 {
+    comment = Default 66 / 33 (two columns)
+    box_header = COA
+    box_header {
+        // Header: news (right)
+      10 = COA
+      10 {
+        10 = TEXT
+        10.value = <div id="box_header_news">
+        20 < styles.content.get
+        20 {
+          select {
+            pidInList = {$base_batBerlin.pages.libraries.header.news}
+            max       = 1
+          }
+        }
+        30 = TEXT
+        30.value = </div>
+      }
+        // Header: logos (left)
+      20 = COA
+      20 {
+        10 = TEXT
+        10.value = <div id="box_header_logos">
+        20 < styles.content.get
+        20 {
+          select {
+            pidInList = {$base_batBerlin.pages.libraries.header.logos}
+            max       = 1
+          }
+        }
+        30 = TEXT
+        30.value = </div>
+      }
+        // Logos (left)
+    }
+    box_menu = COA
+    box_menu {
+      10  < styles.content.get
+      10 {
+        select.pidInList = {$base_batBerlin.pages.libraries.menu}
+      }
+      20 < temp.menuMain
+    }
+    box_content = COA
+    box_content {
+        // Margin (right)
+      10 = COA
+      10 {
+        10 = TEXT
+        10.value = <div id="box_content_margin">
+        20 < styles.content.get
+        20 {
+          select {
+            pidInList = {$base_batBerlin.pages.libraries.margin.level_01}
+          }
+        }
+        30 = TEXT
+        30.value = </div>
+      }
+        // Main (center)
+      20 = COA
+      20 {
+        10 = TEXT
+        10.value = <div id="box_content_main">
+        20 < styles.content.get
+        30 = TEXT
+        30.value = </div>
+      }
+        // Main (center)
+    }
+    box_footer  < styles.content.get
+    box_footer {
+      select.pidInList = {$base_batBerlin.pages.libraries.footer}
+    }
+  }
+  110 < .100
+  110 {
+    comment = 66 / 33 (two columns)
+    box_content {
+      10 {
+        20 {
+          select {
+            where = colPos=2
+            pidInList >
+          }
+        }
+      }
+    }
+  }
+  120 < .100
+  120 {
+    comment = 50 / 50 (two columns)
+    box_content {
+      10 {
+        10.value = <div id="box_content_margin" class="percent50">
+        20 {
+          select {
+            where = colPos=2
+            pidInList >
+          }
+        }
+      }
+      20 {
+        10.value = <div id="box_content_main" class="percent50">
+      }
+    }
+  }
+  130 < .100
+  130 {
+    comment = 100 (one column)
+    box_content {
+      10 > 
+      20 {
+        10.value = <div id="box_content_main" class="percent100">
+      }
+    }
+  }
+}
+  // lib.subparts

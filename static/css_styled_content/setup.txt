@@ -1,0 +1,55 @@
+
+  ///////////////////////////////////////////////////////////////////////
+  //
+  // Overwrite filelist TypoScript (table to definition list)
+  // See
+  // - css_styled_content/static/setup.txt 
+  // - css_styled_content/pi1/class.tx_cssstyledcontent_pi1.php
+  
+tt_content.uploads = COA
+tt_content.uploads {
+  20 {
+    itemRendering {
+      //wrap = <dl class="csc-uploads csc-uploads-odd csc-uploads-first">|</dl> |*| <dl class="csc-uploads csc-uploads-even">|</dl><div class="cleaner">&nbsp;</div> || <dl class="csc-uploads csc-uploads-odd">|</dl> |*|
+      wrap = <dl class="csc-uploads csc-uploads-odd csc-uploads-first">|</dl> |*| <dl class="csc-uploads csc-uploads-even">|</dl> || <dl class="csc-uploads csc-uploads-odd">|</dl> |*|
+
+      10 {
+        //wrap = <dt class="dt-odd dt-first">|</dt> |*| <dt class="dt-even">|</dt> || <dt class="dt-odd">|</dt> |*|
+        wrap = <dt>|</dt>
+      }
+
+      20 >
+      20 = COA
+      20 {
+        //wrap = <dd class="dd-odd dd-first">|</dd> |*| <dd class="dd-even">|</dd> || <dd class="dd-odd">|</dd> |*|
+        wrap = <dd>|</dd>
+        1 = TEXT
+        1 {
+          data        = register:description
+          noTrimWrap  = |<span class="csc-uploads-description">|</span> |
+          required    = 1
+        }
+        2 = TEXT
+        2 {
+          data        = register:linkedLabel
+          noTrimWrap  = || |
+          required    = 1
+        }
+        3 = TEXT
+        3 {
+          if.isTrue.field = filelink_size
+          data            = register:fileSize
+          bytes           = 1
+          bytes.labels    = | KByte| MByte| GByte
+          noTrimWrap      = | <span class="csc-uploads-filesize">|</span>|
+        }
+      }
+
+      30 >
+    }
+
+    linkProc {
+      iconCObject.file.width = 150
+    }
+  }
+}

@@ -1,0 +1,380 @@
+
+
+  ////////////////////////////////////////
+  //
+  // INDEX
+
+  // plugin.tx_browser_pi1
+  //    views
+  //      501: headquarters bat
+
+
+
+  ////////////////////////////////////////
+  //
+  // plugin.tx_browser_pi1
+
+plugin.tx_browser_pi1 {
+  
+  template {
+    extensions {
+      org {
+        headquarters {
+          name      = Org: headquarters (bat)
+          file      = EXT:base_batBerlin/res/html/org/headquarters/501/default.tmpl
+        }
+      }
+    }
+  }
+  views {
+    list {
+      501 = headquarters bat
+      501 {
+        comment (
+          DIESES TEMPLATE IST NICHT FUER DIE LISTENANSICHT VORGESEHEN
+        )
+        name    = headquarters (bat)
+        select (
+          tx_org_headquarters.title
+        )
+      }
+    }
+    single {
+      501 = headquarters bat
+      501 {
+        general_stdWrap {
+          parseFunc {
+            nonTypoTagStdWrap {
+              encapsLines {
+                addAttributes {
+                    // Get rid of class=bodytext
+                  P >
+                }
+                  // Get rid of default <p>-tag
+                nonWrappedTag >
+              }
+            }
+          }
+        }
+        advanced < plugin.tx_browser_pi1.advanced
+        advanced.sql.devider.childrenRecords >
+        marker {
+          my_phrase_departments = TEXT
+          my_phrase_departments {
+            value   = Departments
+            lang.de = Verwaltungen und Abteilungen
+            wrap    = <h3>|</h3>
+          }
+        }
+        select (
+          tx_org_headquarters.title,
+          tx_org_headquarters.mail_postcode,
+          tx_org_headquarters.mail_city,
+          tx_org_headquarters.mail_address,
+          tx_org_headquarters.mail_url,
+          tx_org_headquarters.mail_embeddedcode,
+          tx_org_headquarters.postbox_postbox,
+          tx_org_headquarters.postbox_postcode,
+          tx_org_headquarters.postbox_city,
+          tx_org_headquarters.telephone,
+          tx_org_headquarters.fax,
+          tx_org_headquarters.email,
+          tx_org_headquarters.pubtrans_stop,
+          tx_org_headquarters.pubtrans_url,
+          tx_org_headquarters.pubtrans_embeddedcode,
+          tx_org_headquarters.image,
+          tx_org_headquarters.imagecaption,
+          tx_org_headquarters.imageseo,
+          tx_org_headquarters.embeddedcode,
+          tx_org_headquarters.documents,
+          tx_org_headquarters.keywords,
+          tx_org_headquarters.description,
+          tx_org_department.uid,
+          tx_org_department.title
+        )
+        tx_org_headquarters >
+        tx_org_headquarters {
+          title = TEXT
+          title {
+            value = ###TX_ORG_HEADQUARTERS.TITLE###
+            wrap  = <h1>|</h1>
+          }
+          image < tt_content.image.20
+          image {
+            imgList.field >
+            imgList = ###TX_ORG_HEADQUARTERS.IMAGE###
+            imgPath = uploads/tx_org/
+            //imgMax  = 1
+            1 {
+              file {
+                width.field >
+                width   = 140c;
+                height  = 110c;
+              }
+              altText.field   >
+              altText         = ###TX_ORG_HEADQUARTERS.IMAGESEO###
+              titleText.field >
+              titleText       = ###TX_ORG_HEADQUARTERS.IMAGESEO###
+              imageLinkWrap {
+                enable.field >
+                enable  = 1
+                width   = 600;
+                height  = 400m;
+                //JSwindow = 0
+              }
+            }
+            layout {
+              key.field >
+                // intext-right
+              key = 17
+            }
+            cols.field >
+            cols = 1
+            caption.1 {
+              field >
+              value = ###TX_ORG_HEADQUARTERS.IMAGECAPTION###
+            }
+            stdWrap {
+              prefixComment >
+              wrap          = <div class="image">|</div>
+            }
+          }
+          mail_embeddedcode = COA
+          mail_embeddedcode {
+            10 = TEXT
+            10 {
+              if {
+                isTrue = ###TX_ORG_HEADQUARTERS.MAIL_EMBEDDEDCODE###
+              }
+              value   = City Map
+              lang.de = Stadtplan
+              wrap    = <h3>|</h3>
+            }
+            20 = COA
+            20 {
+              if {
+                isTrue = ###TX_ORG_HEADQUARTERS.MAIL_EMBEDDEDCODE###
+              }
+              10 = TEXT
+              10 {
+                value = ###TX_ORG_HEADQUARTERS.MAIL_EMBEDDEDCODE###
+              }
+              20 = TEXT
+              20 {
+                value = <p>&nbsp;</p>
+              }
+            }
+          }
+          mail_postcode = COA
+          mail_postcode {
+            if {
+              isTrue = ###TX_ORG_HEADQUARTERS.MAIL_POSTCODE######TX_ORG_HEADQUARTERS.MAIL_CITY######TX_ORG_HEADQUARTERS.MAIL_ADDRESS###
+            }
+              // postcode/zip, city, address
+            20 = COA
+            20 {
+              wrap = <p>|</p>
+              10 = TEXT
+              10 {
+                if {
+                  isTrue = ###TX_ORG_HEADQUARTERS.MAIL_POSTCODE###
+                }
+                value = ###TX_ORG_HEADQUARTERS.MAIL_POSTCODE###
+                noTrimWrap = || |
+              }
+              11 = TEXT
+              11 {
+                if {
+                  isTrue = ###TX_ORG_HEADQUARTERS.MAIL_CITY###
+                }
+                value = ###TX_ORG_HEADQUARTERS.MAIL_CITY###
+                noTrimWrap = || |
+              }
+              12 = TEXT
+              12 {
+                if {
+                  isTrue = ###TX_ORG_HEADQUARTERS.MAIL_POSTCODE######TX_ORG_HEADQUARTERS.MAIL_CITY###
+                }
+                value = <br />
+              }
+              20 = TEXT
+              20 {
+                if {
+                  isTrue = ###TX_ORG_HEADQUARTERS.MAIL_ADDRESS###
+                }
+                value = ###TX_ORG_HEADQUARTERS.MAIL_ADDRESS###
+                noTrimWrap = || |
+              }
+            }
+          }
+          postbox_postbox = COA
+          postbox_postbox {
+            10 = TEXT
+            10 {
+              if {
+                isTrue = ###TX_ORG_HEADQUARTERS.POSTBOX_POSTCODE######TX_ORG_HEADQUARTERS.POSTBOX_CITY######TX_ORG_HEADQUARTERS.POSTBOX_POSTBOX###
+              }
+              value   = Postbox
+              lang.de = Postfach
+              wrap    = <h3>|</h3>
+            }
+            20 = COA
+            20 {
+              if {
+                isTrue = ###TX_ORG_HEADQUARTERS.POSTBOX_POSTCODE######TX_ORG_HEADQUARTERS.POSTBOX_CITY######TX_ORG_HEADQUARTERS.POSTBOX_POSTBOX###
+              }
+              wrap = <p>|</p>
+              10 = TEXT
+              10 {
+                if {
+                  isTrue = ###TX_ORG_HEADQUARTERS.POSTBOX_POSTCODE###
+                }
+                value = ###TX_ORG_HEADQUARTERS.POSTBOX_POSTCODE###
+                noTrimWrap = || |
+              }
+              11 = TEXT
+              11 {
+                if {
+                  isTrue = ###TX_ORG_HEADQUARTERS.POSTBOX_CITY###
+                }
+                value = ###TX_ORG_HEADQUARTERS.POSTBOX_CITY###
+                noTrimWrap = ||, |
+              }
+              12 = TEXT
+              12 {
+                if {
+                  isTrue = ###TX_ORG_HEADQUARTERS.POSTBOX_POSTBOX###
+                }
+                value = ###TX_ORG_HEADQUARTERS.POSTBOX_POSTBOX###
+                noTrimWrap = || |
+              }
+            }
+          }
+          pubtrans_stop = COA
+          pubtrans_stop {
+            10 = TEXT
+            10 {
+              if {
+                isTrue = ###TX_ORG_HEADQUARTERS.PUBTRANS_STOP######TX_ORG_HEADQUARTERS.PUBTRANS_URL###
+              }
+              value   = Public Transport
+              lang.de = &Ouml;ffentlicher Nahverkehr (&Ouml;PNV)
+              wrap    = <h3>|</h3>
+            }
+            20 = COA
+            20 {
+              if {
+                isTrue = ###TX_ORG_HEADQUARTERS.PUBTRANS_STOP######TX_ORG_HEADQUARTERS.PUBTRANS_URL###
+              }
+              10 = TEXT
+              10 {
+                if {
+                  isTrue = ###TX_ORG_HEADQUARTERS.PUBTRANS_STOP###
+                }
+                value = ###TX_ORG_HEADQUARTERS.PUBTRANS_STOP###
+                noTrimWrap = || |
+              }
+              11 = TEXT
+              11 {
+                if {
+                  isTrue = ###TX_ORG_HEADQUARTERS.PUBTRANS_URL###
+                }
+                value = Public Transport Stop
+                lang.de = Haltestelle
+                wrap = <p>|</p>
+                typolink {
+                  parameter = ###TX_ORG_HEADQUARTERS.PUBTRANS_URL###
+                }
+              }
+            }
+          }
+          telephone = COA
+          telephone {
+            10 = TEXT
+            10 {
+              if {
+                isTrue = ###TX_ORG_HEADQUARTERS.TELEPHONE######TX_ORG_HEADQUARTERS.FAX######TX_ORG_HEADQUARTERS.EMAIL###
+              }
+              value   = Contact Details
+              lang.de = Kontakt
+              wrap    = <h3>|</h3>
+            }
+            20 = COA
+            20 {
+              if {
+                isTrue = ###TX_ORG_HEADQUARTERS.TELEPHONE######TX_ORG_HEADQUARTERS.FAX######TX_ORG_HEADQUARTERS.EMAIL###
+              }
+              wrap = <p>|</p>
+              10 = TEXT
+              10 {
+                if {
+                  isTrue = ###TX_ORG_HEADQUARTERS.TELEPHONE###
+                }
+                value = phone
+                lang.de = Tel.:
+                noTrimWrap = || ###TX_ORG_HEADQUARTERS.TELEPHONE###<br />|
+              }
+              11 = TEXT
+              11 {
+                if {
+                  isTrue = ###TX_ORG_HEADQUARTERS.FAX###
+                }
+                value = fax
+                lang.de = Fax:
+                noTrimWrap = || ###TX_ORG_HEADQUARTERS.FAX###<br />|
+              }
+              20 = TEXT
+              20 {
+                if {
+                  isTrue = ###TX_ORG_HEADQUARTERS.EMAIL###
+                }
+                value = e-mail
+                lang.de = E-Mail:
+                noTrimWrap = || |
+              }
+              21 = TEXT
+              21 {
+                if {
+                  isTrue = ###TX_ORG_HEADQUARTERS.EMAIL###
+                }
+                typolink {
+                  parameter = ###TX_ORG_HEADQUARTERS.EMAIL###
+                }
+                wrap = |<br />
+              }
+            }
+          }
+        }
+        tx_org_department >
+        tx_org_department {
+          title = COA
+          title {
+            wrap  = <li>|</li>
+            10 = TEXT
+            10 {
+              value = ###TX_ORG_DEPARTMENT.TITLE###
+              typolink {
+                parameter = {$plugin.org.pages.department}
+                parameter {
+                  insertData = 1
+                }
+                additionalParams = &tx_browser_pi1[departmentUid]=###TX_ORG_DEPARTMENT.UID###&###CHASH###
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  _LOCAL_LANG {
+    de {
+      list_mode_501_titleTag      = HfS-Berlin: Standorte und Verwaltungsgebäude
+      list_mode_501_keywords      = Hochschule für Schauspiel, Ernst Busch, Berlin, Standorte, Verwaltungsgebäude
+      list_mode_501_summary       = Hochschule für Schauspiel "Ernst Busch" Berlin: Standorte und Verwaltungsgebäude
+      single_mode_501_titleTag    = HfS-Berlin: ###TX_ORG_HEADQUARTERS.TITLE###
+      single_mode_501_keywords    = ###TX_ORG_HEADQUARTERS.KEYWORDS###
+      single_mode_501_summary     = ###TX_ORG_HEADQUARTERS.DESCRIPTION###
+    }
+  }
+}

@@ -1,0 +1,161 @@
+1. Install and activate or deactivate the extensions
+
+   [+] Template Auto-parser              (automaketemplate)     - obligate
+   [+] Page Template Selector            (rlmp_tmplselector)
+       Set Template Selector Mode to 'ts'
+       Copy icons 
+       # cp -a res/icons/hfs/* ../../../uploads/tf/
+   [+] RealURL: speaking paths for TYPO3 (realurl)              - recommended
+   [+] Recycler                          (recycler)
+   [-] User>Task Center                  (taskcenter)
+   [-] Versioning Management             (version)
+
+   
+2. Install and activate this extension
+
+   [+] HfS Berlin - Template             (base_hfsBerlin)
+
+
+
+3. Edit backend user
+
+   a. Edit your backend user
+      Copy content of file
+      EXT:res/backend_user/01_admin/tsConfig.txt
+      into the user field tsConfig
+
+
+4. Create backend groups
+
+   a. hfs-berlin (uid 1)
+   b. bat-berlin (uid 2)
+
+
+5. Create page tree
+  
+   Title                              uid
+
+   |-- HfS Berlin                       1
+   |    `-- libraries [sysfolder]       2
+   |        |-- header                  3
+   |        `-- footer                  4
+   `-- BAT Berlin                       5
+       `-- libraries [sysfolder]        6
+           |-- header                   7
+           `-- footer                   8
+
+
+6. Configure page tsConfig
+
+   a. page hfs-berlin
+      a. Copy content of file
+         EXT:res/pages/01_hfsBerlin/tsConfig.txt
+         into the page field tsConfig
+      b. Adapt the values to your needs
+
+   b. sysfolder libraries
+      a. Copy content of file
+         EXT:res/pages/01_hfsBerlin/02_libraries/tsConfig.txt
+         into the page field tsConfig
+
+   c. header
+      a. Copy content of file
+         EXT:res/pages/01_hfsBerlin/02_libraries/03_header/tsConfig.txt
+         into the page field tsConfig
+
+   d. footer
+      a. Copy content of file
+         EXT:res/pages/01_hfsBerlin/02_libraries/04_footer/tsConfig.txt
+         into the page field tsConfig
+
+   e. page hfs-berlin
+      a. Copy content of file
+         EXT:res/pages/05_batBerlin/tsConfig.txt
+         into the page field tsConfig
+      b. Adapt the values to your needs
+
+   f. sysfolder libraries
+      a. Copy content of file
+         EXT:res/pages/05_batBerlin/06_libraries/tsConfig.txt
+         into the page field tsConfig
+
+   g. header
+      a. Copy content of file
+         EXT:res/pages/05_batBerlin/06_libraries/07_header/tsConfig.txt
+         into the page field tsConfig
+
+   h. footer
+      a. Copy content of file
+         EXT:res/pages/05_batBerlin/06_libraries/08_footer/tsConfig.txt
+         into the page field tsConfig
+
+
+6. Configure TypoScript
+
+   a. page hfs-berlin
+      Add a TypoScript template
+
+      a. Tab [General]
+         a. Template title:
+            page_hfsberlin_001
+            Where 001 is the id of the current template
+         b. Website title:
+            Hochschule f&uuml;r Schauspielkunst Ernst Busch - Berlin
+         c. Constants:
+            a. Copy content of file
+               EXT:res/pages/01_hfsBerlin/typoscript/constants.txt
+               into the constants field
+            b. Adapt the values to your needs
+
+      b. Tab [Options]
+         Enable fields:
+           [x] Constants
+           [x] Setup
+           [x] Rootlevel
+
+      c. Tab [Includes]
+         a. Enable field
+            [x] Include static templates AFTER basic template
+         b. Include static templates:
+            a. CSS Styled Content (css_styled_content)
+            b. HfS Berlin - Template (hfsBerlin)
+
+   b. page bat-berlin
+      Add a TypoScript template
+      
+      a. Tab [General]
+         a. Template title:
+            page_batberlin_002
+            Where 002 is the id of the current template
+         b. Website title:
+            Studiotheater der HfS Ernst Busch
+         c. Constants:
+            a. Copy content of file
+               EXT:res/pages/05_batBerlin/typoscript/constants.txt
+               into the constants field
+            b. Adapt the values to your needs
+
+      b. Tab [Options]
+         Enable fields:
+           [x] Constants
+           [x] Setup
+           [x] Rootlevel
+
+      c. Tab [Includes]
+         a. Enable field
+            [x] Include static templates AFTER basic template
+         b. Include static templates:
+            a. CSS Styled Content (css_styled_content)
+            b. BAT Berlin - Template (batBerlin)
+
+
+7. Configure Domains
+
+   a. page HfS Berlin
+      a. Add hfs-berlin.de
+      b. Add hfs.die-netzmacher.de
+
+   b. page BAT Berlin
+      a. Add bat-berlin.de
+      b. Add bat.die-netzmacher.de
+      

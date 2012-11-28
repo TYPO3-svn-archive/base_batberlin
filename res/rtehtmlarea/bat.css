@@ -1,0 +1,21 @@
+.align-center {
+  text-align:center;
+}
+.align-justify {
+  text-align:justify;
+}
+.align-left {
+  text-align:left;
+}
+.align-right {
+  text-align:right;
+}
+
+.red_bold {
+  color:#C00;
+  font-weight:bold;
+}
+.orange_bold {
+  color:#FF594D;
+  font-weight:bold;
+}

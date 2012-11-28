@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+  <meta type="array">
+    <type>database</type>
+    <description>Language labels for base_batBerlin</description>
+  </meta>
+  <data type="array">
+    <languageKey index="default" type="array">
+      <label index="tx_org_cal">Schedule</label>
+      <label index="tx_org_cal.div_department">Department</label>
+      <label index="tx_org_cal.department">Department</label>
+      <label index="tx_org_calentrance">Schedule: Entrance Fees</label>
+      <label index="tx_org_caltype">Schedule: Categories</label>
+      <label index="tx_org_caltype.div_calendar">Schedule</label>
+      <label index="tx_org_caltype.calendar">Schedule</label>
+      <label index="tx_org_repertoire.subtitle">Extended label</label>
+    </languageKey>
+    <languageKey index="de" type="array">
+      <label index="tx_org_cal">Spielplan</label>
+      <label index="tx_org_cal.div_department">HfS: Abteilungen</label>
+      <label index="tx_org_cal.department">Beteiligte Abteilungen</label>
+      <label index="tx_org_calentrance">Spielplan: Eintritt</label>
+      <label index="tx_org_caltype">Spielplan: Kategorien</label>
+      <label index="tx_org_caltype.div_calendar">Spielplan</label>
+      <label index="tx_org_caltype.calendar">Spielplan</label>
+      <label index="tx_org_repertoire.subtitle">Erweiterte Bezeichnung (z.B. Übersetzung von ...)</label>
+    </languageKey>
+  </data>
+</T3locallang>

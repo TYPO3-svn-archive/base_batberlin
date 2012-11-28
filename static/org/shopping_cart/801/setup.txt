@@ -1,0 +1,84 @@
+
+
+
+  ////////////////////////////////////////
+  //
+  // INDEX
+
+  // plugin.tx_wtcart_pi1
+
+
+
+  ////////////////////////////////////////
+  //
+  // plugin.tx_wtcart_pi1
+
+plugin.tx_wtcart_pi1 {
+  
+  mainXX {
+    template = EXT:org/res/html/shopping_cart/801/default.tmpl
+  }
+  
+  db {
+    sql (
+      SELECT CONCAT(
+              '<strong>', tx_org_repertoire.title, '</strong><br />',
+              '###GP:TX_ORG_CAL.DATETIME###<br />', 
+              'Karte ', tx_org_calentrance.title, ' ', tx_org_calentrance.value, ' &euro') as title, 
+              tx_org_calentrance.value as price, 
+              tx_org_tax.value as tax
+      FROM `tx_org_cal`
+      LEFT JOIN tx_org_repertoire_mm_tx_org_cal 
+      ON (
+        tx_org_repertoire_mm_tx_org_cal.uid_foreign = tx_org_cal.uid)
+      LEFT JOIN tx_org_repertoire
+      ON (
+        tx_org_repertoire.uid = tx_org_repertoire_mm_tx_org_cal.uid_local
+        ###ENABLE_FIELDS:TX_ORG_REPERTOIRE###)
+      LEFT JOIN tx_org_cal_mm_tx_org_calentrance 
+      ON (
+        tx_org_cal_mm_tx_org_calentrance.uid_local = tx_org_cal.uid)
+      LEFT JOIN tx_org_calentrance 
+      ON (
+            tx_org_cal_mm_tx_org_calentrance.uid_foreign  = tx_org_calentrance.uid
+        AND tx_org_calentrance.uid                        = '###GP:TX_ORG_CALENTRANCE.UID###'
+        ###ENABLE_FIELDS:TX_ORG_CALENTRANCE###)
+      LEFT JOIN tx_org_tax 
+      ON (
+            tx_org_calentrance.tx_org_tax = tx_org_tax.uid
+        ###ENABLE_FIELDS:TX_ORG_TAX###)
+      WHERE tx_org_cal.uid                = '###GP:TX_ORG_CAL.UID###'
+        ###ENABLE_FIELDS:TX_ORG_CAL###
+)
+  }
+  
+  _LOCAL_LANG {
+    default {
+      wtcart_ll_title = Have a ticket reserved
+      wtcart_ll_price = Price
+      wtcart_ll_empty (
+          If you like to have a ticket reserved, please select an event
+          <a title="Have a seat reserved!" href="{$plugin.org.url.default.calendar}">
+            in the playing schedule</a>.<br />
+          Informationen about having a ticket reserved are part of our 
+          <a title="Informationen about booking" href="{$plugin.org.url.default.terms}">
+            terms and conditions</a>.
+)
+    }
+    de {
+      wtcart_ll_title = Kartenreservierung
+      wtcart_ll_price = Preis
+      wtcart_ll_empty (
+          Wenn Sie eine Karte reservieren m&ouml;chten, wählen Sie ein St&uuml;ck
+          <a title="Platz reservieren!" href="{$plugin.org.url.de.calendar}">
+            im Spielplan</a>
+          aus. Dort können Sie Karten online reservieren.<br />
+          <br />
+          Allgemeine Informationen zum Reservieren finden Sie in unseren
+          <a title="Informationen zum Karten reservieren" href="{$plugin.org.url.de.terms}">
+            AGB</a>.
+)
+    }
+  }
+}
+  // plugin.tx_wtcart_pi1

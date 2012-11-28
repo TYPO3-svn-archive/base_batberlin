@@ -1,0 +1,102 @@
+
+
+  ////////////////////////////////////////
+  //
+  // INDEX
+
+  // plugin.tx_browser_pi1
+  //    views
+  //      201: +BAT: +Org Calendar +expired
+
+
+
+  ////////////////////////////////////////
+  //
+  // plugin.tx_browser_pi1
+
+plugin.tx_browser_pi1 {
+  
+  template {
+    extensions {
+      org {
+        calendar_wo_form {
+          name      = +BAT: +Org Calendar +expired
+          file      = EXT:base_batBerlin/res/html/org/calendar/201/default_wo_form.tmpl
+          csvViews  = 201
+        }
+      }
+    }
+  }
+
+  views {
+    list {
+      201 = +BAT: +Org Calendar +expired
+      201 {
+        name = +BAT: +Org Calendar +expired
+        orderBy = tx_org_cal.datetime DESC
+        tx_org_cal {
+          datetime = TEXT
+          datetime {
+            value     = ###TX_ORG_CAL.DATETIME###
+            lang      >
+          }
+        }
+        filter {
+          tx_org_cal.datetime {
+            first_item {
+              stdWrap {
+                data = LLL:EXT:org/locallang_db.xml:filter_phrase.schedule.expired
+              }
+            }
+            area {
+              interval {
+                case = year
+                year {
+                  start_period {
+                    stdWrap.value = 01.01.2010
+                  }
+                }
+              }
+            }
+          }
+        }
+        tx_org_repertoire {
+          teaser_short {
+            30 {
+              typolink {
+                parameter = {$plugin.org.pages.calendar_expired} - linktosingle
+              }
+            }
+          }
+          title {
+            10 {
+              typolink {
+                parameter         = {$plugin.org.pages.calendar_expired} - linktosingle
+              }
+            }
+          }
+        }
+      }
+    }
+    single {
+      201 = +BAT: +Org Calendar +expired
+      201 {
+        name = +BAT: +Org Calendar +expired
+        marker {
+          my_listview_page {
+            lang.de = Spielplan (Archiv) &raquo;
+          }
+        }
+      }
+    }
+  }
+  
+  _LOCAL_LANG {
+    de {
+      list_mode_201_titleTag      = bat-Studiotheater der HfS-Berlin: Spielplan Archiv
+      list_mode_201_keywords      = Hochschule für Schauspiel, Ernst Busch, Berlin, bat, Studiotheater, Spielplan Archiv
+      list_mode_201_summary       = bat-Studiotheater der Hochschule für Schauspiel "Ernst Busch" Berlin: Spielplan Archiv
+    }
+  }
+}
+  // plugin.tx_browser_pi1

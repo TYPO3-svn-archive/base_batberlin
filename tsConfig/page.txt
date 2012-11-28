@@ -1,0 +1,117 @@
+  /////////////////////////////////////////////////
+  //
+  // INDEX
+  // =====
+  // mod
+  // TCEFORM
+  // RTE
+
+
+
+  ///////////////////////////
+  //
+  // mod
+
+[page|tx_rlmptmplselector_ca_tmpl = 100] || [page|tx_rlmptmplselector_ca_tmpl = 130]
+mod {
+  SHARED {
+    colPos_list = 0
+  }
+  web_layout {
+    tt_content {
+      colPos_list = 0
+    }
+  }
+}
+[page|tx_rlmptmplselector_ca_tmpl = 110] || [page|tx_rlmptmplselector_ca_tmpl = 120]
+mod {
+  SHARED {
+    colPos_list = 0,2
+  }
+  web_layout {
+    tt_content {
+      colPos_list = 0,2
+    }
+  }
+}
+[global]
+  // mod
+
+
+
+  ////////////////////////////////////////////////////////////////////////
+  //
+  // TCAdefaults
+
+  // Default values for new records
+TCAdefaults {
+    // Default values for pages record
+  pages {
+      // Default
+    tx_rlmptmplselector_main_tmpl = 100
+      // Default 66 / 33 (two columns)
+    tx_rlmptmplselector_ca_tmpl   = 100
+  }
+}
+  // TCAdefaults
+
+
+
+  ///////////////////////////
+  //
+  // TCEFORM
+
+TCEFORM {
+
+  tt_content {
+    colPos {
+        // 110105, dwildt: removed items can't be added on subpages
+        // remove item 1: left
+      removeItems = 1
+      altLabels.3 =  LLL:EXT:base_batBerlin/locallang_tsConfig.php:tceform.tt_content.colpos.3
+    }
+  }
+}
+  // TCEFORM
+
+
+
+  /////////////////////////////////////
+  //
+  // RTE
+
+RTE {
+  classes {
+    align-justify {
+      name  = LLL:EXT:base_batBerlin/locallang_tsConfig.php:rtehtmlarea.classes.name.align-justify
+      value = text-align:justify;
+    }
+    orange_bold {
+      name  = LLL:EXT:base_batBerlin/locallang_tsConfig.php:rtehtmlarea.classes.name.orange_bold
+      value = font-weight:bold; color:#F90;
+    }
+    red_bold {
+      name  = LLL:EXT:base_batBerlin/locallang_tsConfig.php:rtehtmlarea.classes.name.red_bold
+      value = font-weight:bold; color:#C00;
+    }
+  }
+  default {
+    buttons {
+      textstyle {
+        showTagFreeClasses = 1
+      }
+    }
+    classesCharacter        = orange_bold, red_bold
+    classesParagraph        = align-left, align-center, align-right
+    contentCSS              = EXT:base_batBerlin/res/rtehtmlarea/bat.css
+    ignoreMainStyleOverride = 0
+    inlineStyle {
+      frames >
+    }
+    proc {
+      overrideMode   = css_transform
+      allowedClasses = external-link, external-link-new-window, internal-link, internal-link-new-window, download, mail, align-left, align-center, align-right, align-justify, component-items, action-items, component-items-ordered, action-items-ordered, important, name-of-person, detail, indent, orange_bold, red_bold
+    }
+  }
+}
+  // RTE

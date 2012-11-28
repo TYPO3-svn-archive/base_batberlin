@@ -1,0 +1,172 @@
+/* Version quick_shop 1.3.2, wt_cart 1.2.1 */
+
+/* general form css */
+
+#form-order {
+  text-align: right;
+}
+
+/* product detail page */
+#add-to-cart input.tx_quick_shop_qty, .wtcart_cart_col input {
+  width: 30px;
+}
+
+/* wt_cart */
+.wtcart_cart {
+  background-color: #fff;
+  padding: 0 0 3em 0;
+}
+
+.wtcart_cart_header {
+  background-color: #B02015;
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+.wtcart_cart_footer {
+  background-color: #B02015;
+  color: #fff;
+  font-weight: bold;
+  margin-top: 5px;
+  padding: 5px;
+}
+
+.wtcart_cart_product {
+  padding: 5px;
+}
+
+.wtcart_cart_col {
+  float: left;
+  display:block;
+}
+
+.wtcart_cart_col1 {
+  width: 60px;
+}
+.wtcart_cart_col1_2 {
+  text-align: right;
+  width:320px;
+}
+
+.wtcart_cart_col2 {
+  width: 200px;
+}
+
+.wtcart_cart_col3 {
+  text-align: right;
+  width: 60px;
+}
+
+.wtcart_cart_col3_4 {
+  text-align: right;
+  width:60px;
+}
+
+.wtcart_cart_col4 {
+  text-align: right;
+  width: 60px;
+}
+
+.wtcart_cart_col5 {
+  text-align: right;
+  width: 30px;
+}
+
+.wt_cart_cleaner {
+  clear: both;
+  margin: 0;
+  padding: 0;
+}
+
+#wtcart_payment,
+#wtcart_shipping {
+  padding:5px;
+}
+
+#content .wtcart_cart input {
+  border: 1px solid #AAA;
+  margin:0;
+  padding:0;
+  text-align:right;
+}
+
+/* powermail form */
+
+fieldset.tx-powermail-pi1_fieldset label {
+  float: left;
+  width: 100px;
+  color: #000;
+}
+
+fieldset.tx-powermail-pi1_fieldset input {
+  width: 210px;
+}
+
+fieldset.tx-powermail-pi1_fieldset input:hover, fieldset.tx-powermail-pi1_fieldset textarea:hover {
+  border-color: #B02015;
+}
+
+fieldset.tx-powermail-pi1_fieldset br, fieldset.tx-powermail-pi1_fieldset .tx_powermail_pi1_fieldwrap_html {
+  clear: both;
+}
+
+.powermail_mandatory_js {
+  margin: 0 0 10px 180px;
+  font-size: 0.85em;
+  color: #ff8c00;
+}
+
+.powermail_submit, .tx-powermail-pi1 .powermail_check_inner input, .powermail_radio_inner input {
+  width: auto !important;
+}
+
+.tx-powermail-pi1 legend {
+  padding: 5px 5px 0 5px;
+}
+
+.tx-powermail-pi1 legend, .tx-powermail-pi1_confirmation p {
+  margin: 0 0 10px 0;
+  font-weight: 700;
+}
+
+.tx-powermail-pi1 .tx_powermail_pi1_fieldwrap_html_label {
+  margin: 0 0 0.6em 0;
+}
+
+.tx-powermail-pi1 label {
+  width: 180px !important;
+}
+
+.tx_powermail_pi1_fieldwrap_html_radio_title {
+  font-weight: 700;
+}
+
+.powermail_check_inner, .powermail_radio_inner {
+  margin: 10px 0;
+}
+
+.powermail_check_inner label, .powermail_radio_inner label {
+  float: none !important;
+}
+
+.tx-powermail-pi1 .tx_powermail_pi1_fieldwrap_html_check  .powermail_mandatory_js {
+  margin-left: 0px !important;
+}
+.tx_powermail_pi1_formconfirmation_back, .tx_powermail_pi1_formconfirmation_submit {
+  float: left;
+  margin-top: 10px;
+  width: 50%;
+}
+.tx_powermail_pi1_fieldwrap_html_submit {
+  text-align:right;
+}
+
+.tx-powermail-pi1_confirmation, .tx-powermail-pi1_thx {
+  margin: 1em 0 0 0;
+}
+
+td.powermail_all_td {
+  padding: 2px 5px;
+}

@@ -1,0 +1,164 @@
+
+  ORG
+  ===
+
+  This is the wt_cart cart.html template with following changes:
+  
+    ./. REMOVED
+     +  ADDED
+
+    CHANGES in ---WTCART---
+      ./.  <div> service costs
+       +   TAX label got 0,00&nbsp;&euro in sum field
+      ./.  <div> taxrate_normal
+      ./.  <div> taxrate_reduced
+      ./.  ---SHIPPING_RADIO---
+      ./.  ---PAYMENT_RADIO---
+
+    ./.  subpart marker ---WTCART_SHIPPING--- 
+
+    CHANGES in ---WTCART_POWERMAIL---
+      ./.  <tr> service cost
+       +   TAX label got 0,00&nbsp;&euro in sum field
+      ./.  <tr> taxrate normal
+      ./.  <tr> taxrate reduced
+      ./.  <tr> with shipping
+      ./.  <tr> ---PAYMENT_OPTION---
+      ./  ---PAYMENT_NOTE---
+
+
+
+
+wt_cart HTML Template for Frontend output
+
+VERSION 1.2.2
+
+
+  ###WTCART_LL_EMPTY###
+
+--- Markers inside -------------------------------------------------------------
+
+  ###DELETE###            Delete current product        
+  ###TARGET###            Link to the same page
+
+  ###UID###               Product UID
+  ###TITLE###             Producttitle            ###WTCART_LL_TITLE###
+  ###QTY###               Quantity                ###WTCART_LL_QTY###
+  ###QTY_NAME###          With key/field pairs in case of variations
+  ###PRICE###             Price (Gross)           ###WTCART_LL_PRICE###
+  ###PRICE_TOTAL###       Total Price (Gross)     ###WTCART_LL_PRICE_TOTAL###      Quantity * Price
+
+  ###TAX_PRICE_TOTAL###   Tax (from Total Price)    
+
+
+
+--- Markers outside ------------------------------------------------------------
+
+  ###CART_NET###                                  ###WTCART_LL_CART_NET###
+  ###CART_GROSS###                                ###WTCART_LL_CART_GROSS###
+  ###CART_SERVICE_COST###                         ###WTCART_LL_CART_SERVICE_COST###
+  ###CART_GROSS_NO_SERVICE###
+
+  ###CART_TAX_NORMAL###
+  ###CART_TAX_REDUCED###
+
+  ###TAXRATE_NORMAL_STRING###
+  ###TAXRATE_REDUCED_STRING###
+
+  ###WTCART_LL_TAX###
+
+--------------------------------------------------------------------------------
+
+  Any defined marker of TS  ###ANYMARKRER###
+
+--------------------------------------------------------------------------------
+<!-- ###WTCART### begin --> 
+<div class="wtcart_cart">
+    <form name="cart" id="cart" action="###TARGET###" method="post">
+        ###VARIATIONS###
+        <div class="wtcart_cart_header">
+            <div class="wtcart_cart_col wtcart_cart_col1">###WTCART_LL_QTY###</div>
+            <div class="wtcart_cart_col wtcart_cart_col2">###WTCART_LL_TITLE###</div>
+            <div class="wtcart_cart_col wtcart_cart_col3">###WTCART_LL_PRICE###</div>
+            <div class="wtcart_cart_col wtcart_cart_col4">###WTCART_LL_PRICE_TOTAL###</div>
+            <div class="wt_cart_cleaner"></div>
+        </div>
+        <!-- ###CONTENT### -->
+        <!-- ###ITEM### -->
+        <div class="wtcart_cart_product">
+            <div class="wtcart_cart_col wtcart_cart_col1">
+              <input  type="text" value="###QTY###" name="###QTY_NAME###" onchange="this.form.submit()" />
+            </div>
+            <div class="wtcart_cart_col wtcart_cart_col2">###TITLE###</div>
+            <div class="wtcart_cart_col wtcart_cart_col3">###PRICE###</div>
+            <div class="wtcart_cart_col wtcart_cart_col4">###PRICE_TOTAL###</div>
+            <div class="wtcart_cart_col wtcart_cart_col5">###DELETE###</div>
+            <div class="wt_cart_cleaner"></div>
+        </div>
+        <!-- ###ITEM### -->
+        <!-- ###CONTENT### -->
+        <div class="wtcart_cart_footer">
+            <div class="wtcart_cart_col wtcart_cart_col1_2">###WTCART_LL_CART_NET###</div>
+            <div class="wtcart_cart_col wtcart_cart_col3_4">###CART_NET_NO_SERVICE###</div>
+            <div class="wt_cart_cleaner"></div>
+            <div class="wtcart_cart_col wtcart_cart_col1_2">###WTCART_LL_TAX###</div>
+            <div class="wtcart_cart_col wtcart_cart_col3_4">0,00&nbsp;&euro</div>
+            <div class="wt_cart_cleaner"></div>
+            <div class="wtcart_cart_col wtcart_cart_col1_2">###WTCART_LL_GROSS_TOTAL###</div>
+            <div class="wtcart_cart_col wtcart_cart_col3_4">###CART_GROSS###</div>
+            <div class="wt_cart_cleaner"></div>
+        </div>
+    </form>
+</div>
+<!-- ###WTCART### end -->
+
+
+<!-- ###WTCART_PAYMENT### begin -->
+<div id="wtcart_payment">
+    <fieldset>
+        <legend>###WTCART_LL_PAYMENT###</legend>
+        <!-- ###CONTENT### --><!-- ###ITEM### -->
+        <div class="wtcart_cart_fieldwrap_radio">###PAYMENT_RADIO### ###PAYMENT_TITLE###</div>
+        <!-- ###ITEM### --><!-- ###CONTENT### -->
+    </fieldset>
+</div>
+<!-- ###WTCART_PAYMENT### end -->
+
+
+<!-- ###WTCART_EMPTY### begin --> 
+<div class="wtcart_cart_empty">###WTCART_LL_EMPTY###</div>
+<!-- ###WTCART_EMPTY### end --> 
+
+
+<!-- ###WTCART_POWERMAIL### begin --> 
+<table width="500" cellpadding="3" cellspacing="0" bgcolor="cccccc" border="1">
+    <tr style="font-weight: bold;">
+        <td style="text-align:right;padding-right:.4em">###WTCART_LL_QTY###</td>
+        <td>###WTCART_LL_TITLE###</td>
+        <td style="text-align:right;padding-right:.4em">###WTCART_LL_PRICE###</td>
+        <td style="text-align:right;padding-right:.4em">###WTCART_LL_PRICE_TOTAL###</td>
+    </tr>
+    <!-- ###CONTENT### -->
+    <!-- ###ITEM### -->
+    <tr>
+        <td style="text-align:right;padding-right:.4em">###QTY###</td>
+        <td>###TITLE###</td>
+        <td style="text-align:right;padding-right:.4em">###PRICE###</td>
+        <td style="text-align:right;padding-right:.4em">###PRICE_TOTAL###</td>
+    </tr>
+    <!-- ###ITEM### -->
+    <!-- ###CONTENT### -->
+    <tr style="font-weight: bold;">
+      <td colspan="3" style="text-align:right;padding-right:.4em">###WTCART_LL_CART_NET###</td>
+      <td style="text-align:right;padding-right:.4em">###CART_NET_NO_SERVICE###</td>
+    </tr>
+    <tr style="font-weight: bold;">
+      <td colspan="3" style="text-align:right;padding-right:.4em">###WTCART_LL_TAX###</td>
+      <td style="text-align:right;padding-right:.4em">0,00&nbsp;&euro</td>
+    </tr>
+    <tr style="font-weight: bold;">
+      <td colspan="3" style="text-align:right;padding-right:.4em">###WTCART_LL_GROSS_TOTAL###</td>
+      <td style="text-align:right;padding-right:.4em">###CART_GROSS###</td>
+    </tr>
+</table>
+<!-- ###WTCART_POWERMAIL### end -->

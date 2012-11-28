@@ -1,0 +1,146 @@
+
+
+  ////////////////////////////////////////
+  //
+  // INDEX
+
+  // plugin.tx_browser_pi1
+  //    views
+  //      331: +BAT: +Org-Repertoire: Repertoire
+
+
+
+  ////////////////////////////////////////
+  //
+  // plugin.tx_browser_pi1
+
+plugin.tx_browser_pi1 {
+  
+  views {
+    list {
+      331 = +BAT: +Org-Repertoire: Repertoire
+      331 {
+        name    = +BAT: +Org-Repertoire: Repertoire
+        tx_org_repertoire {
+          subtitle {
+            wrap = <div class="cal_subtitle cal_subtitle_repertoire"><span class="orange_bold">|</span></div>
+          }
+          title {
+            20 {
+              noTrimWrap = | <span class="orange_bold">|</span>|
+            }
+          }
+        }
+      }
+    }
+    single {
+      331 = +BAT: +Org-Repertoire: Repertoire
+      331 {
+        tx_org_cal {
+          datetime {
+            10 {
+              wrap = <div class="my_datesheet my_datesheet_repertoire">|</div>
+              10 {
+                typolink {
+                  parameter = {$plugin.org.pages.calendar} - invert
+                }
+              }
+              20 {
+                typolink {
+                  parameter = {$plugin.org.pages.calendar} - invert
+                }
+              }
+              30 {
+                typolink {
+                  parameter = {$plugin.org.pages.calendar} - invert
+                }
+              }
+            }
+            20 {
+              wrap = <div class="my_datesheet my_datesheet_expired my_datesheet_repertoire my_datesheet_repertoire_expired">|</div>
+              10 {
+                typolink {
+                  parameter = {$plugin.org.pages.calendar} - invert
+                }
+              }
+              20 {
+                typolink {
+                  parameter = {$plugin.org.pages.calendar} - invert
+                }
+              }
+              30 {
+                typolink {
+                  parameter = {$plugin.org.pages.calendar} - invert
+                }
+              }
+            }
+          }
+        }
+        tx_org_repertoire {
+            // image, staff, bodytext
+          bodytext {
+            text >
+              // staff, bodytext
+            text {
+              required  = 1
+              wrap      = <div class="repertoire_bodytext">|</div>
+              stdWrap.parseFunc < lib.parseFunc_RTE
+                // staff
+              10 = TEXT
+              10 {
+                required    = 1
+                value       = ###TX_ORG_REPERTOIRE.STAFF###
+                noTrimWrap  = |<strong>|</strong> |
+              }
+                // bodytext
+              20 = TEXT
+              20 {
+                value = ###TX_ORG_REPERTOIRE.BODYTEXT###
+              }
+            }
+          }
+            // title, producer, subtitle
+          title >
+          title = COA
+          title {
+              // title, producer
+            10 = COA
+            10 {
+              wrap  = <h1>|</h1>
+              10 = TEXT
+              10 {
+                value = ###TX_ORG_REPERTOIRE.TITLE###
+              }
+              20 = TEXT
+              20 {
+                if.isTrue   = ###TX_ORG_REPERTOIRE.PRODUCER###
+                value       = by ###TX_ORG_REPERTOIRE.PRODUCER###
+                lang.de     = von ###TX_ORG_REPERTOIRE.PRODUCER###
+                noTrimWrap  = | <span class="orange_bold">|</span>|
+              }
+            }
+              // subtitle
+            20 = TEXT
+            20 {
+              required  = 1
+              value     = ###TX_ORG_REPERTOIRE.SUBTITLE###
+              wrap      = <div class="cal_subtitle cal_subtitle_repertoire"><span class="orange_bold">|</span></div>
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  _LOCAL_LANG {
+    de {
+      list_mode_331_titleTag      = bat Studiotheater der HfS-Berlin: Repertoire und Stücke
+      list_mode_331_keywords      = bat, Studiotheater, HfS, Berlin, Repertoire, Stücke
+      list_mode_331_summary       = bat Studiotheater der HfS-Berlin: Repertoire und Stücke
+      single_mode_331_titleTag    = bat Studiotheater der HfS-Berlin: ###TX_ORG_REPERTOIRE.TITLE###
+      single_mode_331_keywords    = bat, Studiotheater, HfS, Berlin, ###TX_ORG_REPERTOIRE.KEYWORDS###
+      single_mode_331_summary     = bat Studiotheater der HfS-Berlin: ###TX_ORG_REPERTOIRE.DESCRIPTION###
+    }
+  }
+}
+  // plugin.tx_browser_pi1

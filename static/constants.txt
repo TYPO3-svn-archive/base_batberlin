@@ -1,0 +1,138 @@
+
+  //////////////////////////////////////////////
+  //
+  // CONSTANTS
+
+  // CONSTANT EDITOR base_batBerlin
+  // PAGE_TARGET
+  // content
+  // styles
+  // plugin.org
+
+
+
+  //////////////////////////////////////////////
+  //
+  // CONSTANT EDITOR base_batBerlin
+
+base_batBerlin {
+  # cat=bat-berlin.de html head//100; type=string; label= Host:URL of the website with ending slash
+  htmlhead.base_href = http://bat-berlin.de/
+  # cat=bat-berlin.de html head//101; type=string; label= author:Value for the author-tag 
+  htmlhead.author = bat Studiotheater der Hochschule für Schauspielkunst Ernst Busch - Berlin
+  # cat=bat-berlin.de html head//102; type=string; label= description:Description for search engines 
+  htmlhead.description = bat Studiotheater der Hochschule für Schauspielkunst Ernst Busch - Berlin
+  # cat=bat-berlin.de html head//103; type=string; label= author:Keywords for search engines
+  htmlhead.keywords = BAT, Studiotheater, Hochschule, Schauspielkunst, Ernst Busch, Berlin
+  # cat=bat-berlin.de html head//104; type=string; label= favicon:Path to the favicon
+  htmlhead.favicon = EXT:base_batBerlin/res/images/05_batBerlin/favicon.ico
+  
+  # cat=bat-berlin.de Pages/page/100; type=+int; label= root page:Uid of your root page
+  pages.root = 5
+  # cat=bat-berlin.de Pages/page/101; type=+int; label= header logos:Sysfolder with the logos for the header
+  pages.libraries.header.logos = 7
+  # cat=bat-berlin.de Pages/page/102; type=+int; label= header news:Sysfolder with the news for the header
+  pages.libraries.header.news = 200
+  # cat=bat-berlin.de Pages/page/103; type=+int; label= menu:Sysfolder with content for the menu
+  pages.libraries.menu = 83
+  # cat=bat-berlin.de Pages/page/104; type=+int; label= margin 1st level:Sysfolder with content for right column (1st level)
+  pages.libraries.margin.level_01 = 201
+  # cat=bat-berlin.de Pages/page/105; type=+int; label= margin 2nd level:Sysfolder with content for right column (2nd level)
+  pages.libraries.margin.level_02 = 202
+  # cat=bat-berlin.de Pages/page/106; type=+int; label= footer:Sysfolder with content for the footer
+  pages.libraries.footer = 8
+  
+  # cat=bat-berlin.de Files/file/100; type=string; label= Path to ressources:Path to directory with ending slash
+  path.res = EXT:base_batBerlin/res/
+  # cat=bat-berlin.de Files/file/101; type=string; label= HTML template:Path with the default HTML template
+  path.html = EXT:base_batBerlin/res/html/default/index.html
+  # cat=bat-berlin.de Files/file/102; type=string; label= CSS file:Path with the default CSS file
+  path.css = EXT:base_batBerlin/res/html/default/css/index.css
+  # cat=bat-berlin.de Files/file/103; type=string; label= Alternate Image:Path to the image, which should displayed, if there is an image missed. 
+  path.alternate_image = EXT:base_batBerlin/res/images/alternate_image_400x300_grey.gif
+}
+  // CONSTANT EDITOR base_batBerlin
+
+
+
+  //////////////////////////////////////////////
+  //
+  // PAGE_TARGET
+
+PAGE_TARGET = 
+  // PAGE_TARGET
+
+
+
+  //////////////////////////////////////////////
+  //
+  // content
+
+content {
+  headerSpace = 0|0 
+  space       = 0|0
+}
+  // content
+
+
+
+  //////////////////////////////////////////////
+  //
+  // styles
+
+styles {
+  content {
+    imgtext {
+      maxW = 600
+      linkWrap {
+        width = 600
+      }
+    }
+  }
+}
+  // styles
+
+
+
+  //////////////////////////////////////////////
+  //
+  // plugin.org
+
+plugin.org {
+
+  pages {
+    calendar          =   5
+    calendar_expired  =  96
+    headquarter       =  78
+    location          =  78
+    department        =  80
+    news              =
+    repertoire        =  95
+    staff             =  
+    shopping_cart     = 110
+    terms             = 112
+  }
+
+  sysfolder {
+    calendar    = 116
+    headquarter = 119
+    location    = 120
+    department  = 118
+    news        = 117
+    repertoire  = 115
+    staff       = 114
+  }
+
+  url {
+    default {
+      calendar      = schedule/
+      shopping_cart = tickets/
+      terms         = tickets/terms/
+    }
+    de {
+      calendar      = spielplan/
+      shopping_cart = karten/
+      terms         = karten/agb/
+    }
+  }
+}
