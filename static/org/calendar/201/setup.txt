@@ -21,7 +21,7 @@ plugin.tx_browser_pi1 {
       org {
         calendar {
           name      = +BAT: +Org: Calendar
-          file      = EXT:base_batBerlin/res/html/org/calendar/201/default.tmpl
+          file      = EXT:base_batberlin/res/html/org/calendar/201/default.tmpl
         }
       }
     }
@@ -34,7 +34,7 @@ plugin.tx_browser_pi1 {
         name    = +BAT: +Org: Calendar
         displayList {
           image {
-            file = {$base_batBerlin.path.alternate_image}
+            file = {$base_batberlin.path.alternate_image}
           }
         }
         marker {

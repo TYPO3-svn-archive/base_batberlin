@@ -21,7 +21,7 @@ plugin.tx_browser_pi1 {
       org {
         calendar_wo_form {
           name      = +BAT: +Org Calendar +expired
-          file      = EXT:base_batBerlin/res/html/org/calendar/201/default_wo_form.tmpl
+          file      = EXT:base_batberlin/res/html/org/calendar/201/default_wo_form.tmpl
           csvViews  = 201
         }
       }

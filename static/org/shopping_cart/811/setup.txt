@@ -6,7 +6,7 @@
 plugin.tx_wtcart_pi1 {
   main {
       // Marginal: minicart template
-    template = EXT:base_batBerlin/res/html/org/shopping_cart/811/default.tmpl
+    template = EXT:base_batberlin/res/html/org/shopping_cart/811/default.tmpl
   }
   settings {
     overall {

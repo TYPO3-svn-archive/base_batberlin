@@ -1,3 +1,22 @@
+0.4.9
+  12-12-02
+  Improvements
+  * #43535: Rename base_batBerlin to base_batberlin
+            Effected files:
+            * static/lib/setup.txt
+            * static/org/headquarters/501/setup.txt
+            * static/org/calendar/201/expired/setup.txt
+            * static/org/calendar/201/setup.txt
+            * static/org/calendar/211/setup.txt
+            * static/org/shopping_cart/811/setup.txt
+            * static/org/department/601/setup.txt
+            * static/constants.txt
+            * static/setup.txt
+            * tsConfig/page.txt
+            * ext_emconf.php
+            * ext_tables.php
+            * locallang_db.xml
+
 0.4.8
   12-11-28
   Dependencies

@@ -1,7 +1,7 @@
 <?php
 
 ########################################################################
-# Extension Manager/Repository config file for ext "base_batBerlin".
+# Extension Manager/Repository config file for ext "base_batberlin".
 #
 # Auto generated 12-05-2011 17:09
 #
@@ -17,7 +17,7 @@ $EM_CONF[$_EXTKEY] = array(
     'author' => 'Dirk Wildt - Die Netzmacher GbR',
     'author_email' => 'http://wildt.at.die-netzmacher.de',
     'shy' => '',
-    'dependencies' => 'automaketemplate,org,org_repertoire',
+    'dependencies' => 'automaketemplate,powermail,powermail_cond,org,org_repertoire,realurl,tsconf',
     'conflicts' => '',
     'priority' => '',
     'module' => '',
@@ -29,12 +29,16 @@ $EM_CONF[$_EXTKEY] = array(
     'clearCacheOnLoad' => 0,
     'lockType' => '',
     'author_company' => '',
-    'version' => '0.4.8',
+    'version' => '0.4.9',
     'constraints' => array(
         'depends' => array(
-            'automaketemplate' => '0.1.2-0.0.0',
-            'org' => '0.4.4-0.0.0',
-            'org_repertoire' => '0.4.4-0.0.0',
+            'automaketemplate' => '0.1.3-0.0.0',
+            'powermail' => '1.6.9-0.0.0',
+            'powermail_cond' => '1.0.2-0.0.0',
+            'org' => '2.1.9-0.0.0',
+            'org_repertoire' => '1.0.0-0.0.0',
+            'realurl' => '1.12.3-0.0.0',
+            'tsconf' => '1.0.1-0.0.0',
         ),
         'conflicts' => array(
         ),

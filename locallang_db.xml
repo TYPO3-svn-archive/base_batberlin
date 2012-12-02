@@ -2,7 +2,7 @@
 <T3locallang>
   <meta type="array">
     <type>database</type>
-    <description>Language labels for base_batBerlin</description>
+    <description>Language labels for base_batberlin</description>
   </meta>
   <data type="array">
     <languageKey index="default" type="array">

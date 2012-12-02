@@ -86,30 +86,30 @@ t3lib_extMgm::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKE
 
   // tx_org_cal
 t3lib_div::loadTCA('tx_org_cal');
-$TCA['tx_org_cal']['ctrl']['title']                         = 'LLL:EXT:base_batBerlin/locallang_db.xml:tx_org_cal';
-$TCA['tx_org_cal']['columns']['management']['label']        = 'LLL:EXT:base_batBerlin/locallang_db.xml:tx_org_cal.management';
+$TCA['tx_org_cal']['ctrl']['title']                         = 'LLL:EXT:base_batberlin/locallang_db.xml:tx_org_cal';
+$TCA['tx_org_cal']['columns']['management']['label']        = 'LLL:EXT:base_batberlin/locallang_db.xml:tx_org_cal.management';
 $TCA['tx_org_cal']['types']['0']['showitem']                = str_replace (
                                                                 'LLL:EXT:org/locallang_db.xml:tx_org_cal.div_management',
-                                                                'LLL:EXT:base_batBerlin/locallang_db.xml:tx_org_cal.div_management',
+                                                                'LLL:EXT:base_batberlin/locallang_db.xml:tx_org_cal.div_management',
                                                                 $TCA['tx_org_cal']['types']['0']['showitem']
                                                               );
   // tx_org_calentrance
 t3lib_div::loadTCA('tx_org_calentrance');
-$TCA['tx_org_calentrance']['ctrl']['title']                 = 'LLL:EXT:base_batBerlin/locallang_db.xml:tx_org_calentrance';
+$TCA['tx_org_calentrance']['ctrl']['title']                 = 'LLL:EXT:base_batberlin/locallang_db.xml:tx_org_calentrance';
 
   // tx_org_caltype
 t3lib_div::loadTCA('tx_org_caltype');
-$TCA['tx_org_caltype']['ctrl']['title']                     = 'LLL:EXT:base_batBerlin/locallang_db.xml:tx_org_caltype';
-$TCA['tx_org_caltype']['columns']['calendar']['label']      = 'LLL:EXT:base_batBerlin/locallang_db.xml:tx_org_caltype.calendar';
+$TCA['tx_org_caltype']['ctrl']['title']                     = 'LLL:EXT:base_batberlin/locallang_db.xml:tx_org_caltype';
+$TCA['tx_org_caltype']['columns']['calendar']['label']      = 'LLL:EXT:base_batberlin/locallang_db.xml:tx_org_caltype.calendar';
 $TCA['tx_org_caltype']['types']['0']['showitem']            = str_replace (
                                                                 'LLL:EXT:org/locallang_db.xml:tx_org_caltype.div_calendar',
-                                                                'LLL:EXT:base_batBerlin/locallang_db.xml:tx_org_caltype.div_calendar',
+                                                                'LLL:EXT:base_batberlin/locallang_db.xml:tx_org_caltype.div_calendar',
                                                                 $TCA['tx_org_caltype']['types']['0']['showitem']
                                                               );
 
   // tx_org_repertoire
 t3lib_div::loadTCA('tx_org_repertoire');
-$TCA['tx_org_repertoire']['columns']['subtitle']['label']   = 'LLL:EXT:base_batBerlin/locallang_db.xml:tx_org_repertoire.subtitle';
+$TCA['tx_org_repertoire']['columns']['subtitle']['label']   = 'LLL:EXT:base_batberlin/locallang_db.xml:tx_org_repertoire.subtitle';
   // Configure third party tables
 
 ?>

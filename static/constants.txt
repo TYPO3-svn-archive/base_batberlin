@@ -3,7 +3,7 @@
   //
   // CONSTANTS
 
-  // CONSTANT EDITOR base_batBerlin
+  // CONSTANT EDITOR base_batberlin
   // PAGE_TARGET
   // content
   // styles
@@ -13,9 +13,9 @@
 
   //////////////////////////////////////////////
   //
-  // CONSTANT EDITOR base_batBerlin
+  // CONSTANT EDITOR base_batberlin
 
-base_batBerlin {
+base_batberlin {
   # cat=bat-berlin.de html head//100; type=string; label= Host:URL of the website with ending slash
   htmlhead.base_href = http://bat-berlin.de/
   # cat=bat-berlin.de html head//101; type=string; label= author:Value for the author-tag 
@@ -25,7 +25,7 @@ base_batBerlin {
   # cat=bat-berlin.de html head//103; type=string; label= author:Keywords for search engines
   htmlhead.keywords = BAT, Studiotheater, Hochschule, Schauspielkunst, Ernst Busch, Berlin
   # cat=bat-berlin.de html head//104; type=string; label= favicon:Path to the favicon
-  htmlhead.favicon = EXT:base_batBerlin/res/images/05_batBerlin/favicon.ico
+  htmlhead.favicon = EXT:base_batberlin/res/images/05_batBerlin/favicon.ico
   
   # cat=bat-berlin.de Pages/page/100; type=+int; label= root page:Uid of your root page
   pages.root = 5
@@ -43,15 +43,15 @@ base_batBerlin {
   pages.libraries.footer = 8
   
   # cat=bat-berlin.de Files/file/100; type=string; label= Path to ressources:Path to directory with ending slash
-  path.res = EXT:base_batBerlin/res/
+  path.res = EXT:base_batberlin/res/
   # cat=bat-berlin.de Files/file/101; type=string; label= HTML template:Path with the default HTML template
-  path.html = EXT:base_batBerlin/res/html/default/index.html
+  path.html = EXT:base_batberlin/res/html/default/index.html
   # cat=bat-berlin.de Files/file/102; type=string; label= CSS file:Path with the default CSS file
-  path.css = EXT:base_batBerlin/res/html/default/css/index.css
+  path.css = EXT:base_batberlin/res/html/default/css/index.css
   # cat=bat-berlin.de Files/file/103; type=string; label= Alternate Image:Path to the image, which should displayed, if there is an image missed. 
-  path.alternate_image = EXT:base_batBerlin/res/images/alternate_image_400x300_grey.gif
+  path.alternate_image = EXT:base_batberlin/res/images/alternate_image_400x300_grey.gif
 }
-  // CONSTANT EDITOR base_batBerlin
+  // CONSTANT EDITOR base_batberlin
 
 
 

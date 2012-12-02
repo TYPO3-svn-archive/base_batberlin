@@ -68,7 +68,7 @@ TCEFORM {
         // 110105, dwildt: removed items can't be added on subpages
         // remove item 1: left
       removeItems = 1
-      altLabels.3 =  LLL:EXT:base_batBerlin/locallang_tsConfig.php:tceform.tt_content.colpos.3
+      altLabels.3 =  LLL:EXT:base_batberlin/locallang_tsConfig.php:tceform.tt_content.colpos.3
     }
   }
 }
@@ -83,15 +83,15 @@ TCEFORM {
 RTE {
   classes {
     align-justify {
-      name  = LLL:EXT:base_batBerlin/locallang_tsConfig.php:rtehtmlarea.classes.name.align-justify
+      name  = LLL:EXT:base_batberlin/locallang_tsConfig.php:rtehtmlarea.classes.name.align-justify
       value = text-align:justify;
     }
     orange_bold {
-      name  = LLL:EXT:base_batBerlin/locallang_tsConfig.php:rtehtmlarea.classes.name.orange_bold
+      name  = LLL:EXT:base_batberlin/locallang_tsConfig.php:rtehtmlarea.classes.name.orange_bold
       value = font-weight:bold; color:#F90;
     }
     red_bold {
-      name  = LLL:EXT:base_batBerlin/locallang_tsConfig.php:rtehtmlarea.classes.name.red_bold
+      name  = LLL:EXT:base_batberlin/locallang_tsConfig.php:rtehtmlarea.classes.name.red_bold
       value = font-weight:bold; color:#C00;
     }
   }
@@ -103,7 +103,7 @@ RTE {
     }
     classesCharacter        = orange_bold, red_bold
     classesParagraph        = align-left, align-center, align-right
-    contentCSS              = EXT:base_batBerlin/res/rtehtmlarea/bat.css
+    contentCSS              = EXT:base_batberlin/res/rtehtmlarea/bat.css
     ignoreMainStyleOverride = 0
     inlineStyle {
       frames >

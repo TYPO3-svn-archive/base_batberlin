@@ -120,7 +120,7 @@ lib.subparts {
         20 < styles.content.get
         20 {
           select {
-            pidInList = {$base_batBerlin.pages.libraries.header.news}
+            pidInList = {$base_batberlin.pages.libraries.header.news}
             max       = 1
           }
         }
@@ -135,7 +135,7 @@ lib.subparts {
         20 < styles.content.get
         20 {
           select {
-            pidInList = {$base_batBerlin.pages.libraries.header.logos}
+            pidInList = {$base_batberlin.pages.libraries.header.logos}
             max       = 1
           }
         }
@@ -148,7 +148,7 @@ lib.subparts {
     box_menu {
       10  < styles.content.get
       10 {
-        select.pidInList = {$base_batBerlin.pages.libraries.menu}
+        select.pidInList = {$base_batberlin.pages.libraries.menu}
       }
       20 < temp.menuMain
     }
@@ -162,7 +162,7 @@ lib.subparts {
         20 < styles.content.get
         20 {
           select {
-            pidInList = {$base_batBerlin.pages.libraries.margin.level_01}
+            pidInList = {$base_batberlin.pages.libraries.margin.level_01}
           }
         }
         30 = TEXT
@@ -181,7 +181,7 @@ lib.subparts {
     }
     box_footer  < styles.content.get
     box_footer {
-      select.pidInList = {$base_batBerlin.pages.libraries.footer}
+      select.pidInList = {$base_batberlin.pages.libraries.footer}
     }
   }
   110 < .100

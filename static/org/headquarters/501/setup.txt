@@ -21,7 +21,7 @@ plugin.tx_browser_pi1 {
       org {
         headquarters {
           name      = Org: headquarters (bat)
-          file      = EXT:base_batBerlin/res/html/org/headquarters/501/default.tmpl
+          file      = EXT:base_batberlin/res/html/org/headquarters/501/default.tmpl
         }
       }
     }

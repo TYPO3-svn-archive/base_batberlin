@@ -23,7 +23,7 @@ plugin.tx_browser_pi1 {
       org {
         department {
           name      = Org: department bat
-          file      = EXT:base_batBerlin/res/html/org/department/601/default.tmpl
+          file      = EXT:base_batberlin/res/html/org/department/601/default.tmpl
         }
       }
     }

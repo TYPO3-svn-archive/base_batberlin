@@ -21,7 +21,7 @@ plugin.tx_browser_pi1 {
       org {
         calendar_margin {
           name      = Org: calendar (bat) - margin
-          file      = EXT:base_batBerlin/res/html/org/calendar/211/default.tmpl
+          file      = EXT:base_batberlin/res/html/org/calendar/211/default.tmpl
         }
       }
     }
