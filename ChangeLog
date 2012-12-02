@@ -16,6 +16,10 @@
             * ext_emconf.php
             * ext_tables.php
             * locallang_db.xml
+  Bugfix
+  * #43536: SQL query must be a COA for wt_cart
+            Effected files:
+            * static/org/shopping_cart/801/setup.txt
 
 0.4.8
   12-11-28

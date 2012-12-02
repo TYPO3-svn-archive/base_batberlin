@@ -20,35 +20,37 @@ plugin.tx_wtcart_pi1 {
   }
   
   db {
-    sql (
-      SELECT CONCAT(
-              '<strong>', tx_org_repertoire.title, '</strong><br />',
-              '###GP:TX_ORG_CAL.DATETIME###<br />', 
-              'Karte ', tx_org_calentrance.title, ' ', tx_org_calentrance.value, ' &euro') as title, 
-              tx_org_calentrance.value as price, 
-              tx_org_tax.value as tax
-      FROM `tx_org_cal`
-      LEFT JOIN tx_org_repertoire_mm_tx_org_cal 
-      ON (
-        tx_org_repertoire_mm_tx_org_cal.uid_foreign = tx_org_cal.uid)
-      LEFT JOIN tx_org_repertoire
-      ON (
-        tx_org_repertoire.uid = tx_org_repertoire_mm_tx_org_cal.uid_local
-        ###ENABLE_FIELDS:TX_ORG_REPERTOIRE###)
-      LEFT JOIN tx_org_cal_mm_tx_org_calentrance 
-      ON (
-        tx_org_cal_mm_tx_org_calentrance.uid_local = tx_org_cal.uid)
-      LEFT JOIN tx_org_calentrance 
-      ON (
-            tx_org_cal_mm_tx_org_calentrance.uid_foreign  = tx_org_calentrance.uid
-        AND tx_org_calentrance.uid                        = '###GP:TX_ORG_CALENTRANCE.UID###'
-        ###ENABLE_FIELDS:TX_ORG_CALENTRANCE###)
-      LEFT JOIN tx_org_tax 
-      ON (
-            tx_org_calentrance.tx_org_tax = tx_org_tax.uid
-        ###ENABLE_FIELDS:TX_ORG_TAX###)
-      WHERE tx_org_cal.uid                = '###GP:TX_ORG_CAL.UID###'
-        ###ENABLE_FIELDS:TX_ORG_CAL###
+    sql = TEXT
+    sql {
+      value (
+        SELECT CONCAT(
+                '<strong>', tx_org_repertoire.title, '</strong><br />',
+                '###GP:TX_ORG_CAL.DATETIME###<br />', 
+                'Karte ', tx_org_calentrance.title, ' ', tx_org_calentrance.value, ' &euro') as title, 
+                tx_org_calentrance.value as price, 
+                tx_org_tax.value as tax
+        FROM `tx_org_cal`
+        LEFT JOIN tx_org_repertoire_mm_tx_org_cal 
+        ON (
+          tx_org_repertoire_mm_tx_org_cal.uid_foreign = tx_org_cal.uid)
+        LEFT JOIN tx_org_repertoire
+        ON (
+          tx_org_repertoire.uid = tx_org_repertoire_mm_tx_org_cal.uid_local
+          ###ENABLE_FIELDS:TX_ORG_REPERTOIRE###)
+        LEFT JOIN tx_org_cal_mm_tx_org_calentrance 
+        ON (
+          tx_org_cal_mm_tx_org_calentrance.uid_local = tx_org_cal.uid)
+        LEFT JOIN tx_org_calentrance 
+        ON (
+              tx_org_cal_mm_tx_org_calentrance.uid_foreign  = tx_org_calentrance.uid
+          AND tx_org_calentrance.uid                        = '###GP:TX_ORG_CALENTRANCE.UID###'
+          ###ENABLE_FIELDS:TX_ORG_CALENTRANCE###)
+        LEFT JOIN tx_org_tax 
+        ON (
+              tx_org_calentrance.tx_org_tax = tx_org_tax.uid
+          ###ENABLE_FIELDS:TX_ORG_TAX###)
+        WHERE tx_org_cal.uid                = '###GP:TX_ORG_CAL.UID###'
+          ###ENABLE_FIELDS:TX_ORG_CAL###
 )
   }
   
