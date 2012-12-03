@@ -6,6 +6,7 @@
   // INDEX
 
   // plugin.tx_wtcart_pi1
+  // page
 
 
 
@@ -26,7 +27,7 @@ plugin.tx_wtcart_pi1 {
         SELECT CONCAT(
                 '<strong>', tx_org_repertoire.title, '</strong><br />',
                 '###GP:TX_ORG_CAL.DATETIME###<br />', 
-                'Karte ', tx_org_calentrance.title, ' ', tx_org_calentrance.value, ' &euro') as title, 
+                'Karte ', tx_org_calentrance.title, ' ', tx_org_calentrance.value, ' &euro;') as title, 
                 tx_org_calentrance.value as price, 
                 tx_org_tax.value as tax
         FROM `tx_org_cal`
@@ -52,6 +53,7 @@ plugin.tx_wtcart_pi1 {
         WHERE tx_org_cal.uid                = '###GP:TX_ORG_CAL.UID###'
           ###ENABLE_FIELDS:TX_ORG_CAL###
 )
+    }
   }
   
   _LOCAL_LANG {
@@ -84,3 +86,19 @@ plugin.tx_wtcart_pi1 {
   }
 }
   // plugin.tx_wtcart_pi1
+
+
+
+  ////////////////////////////////////////
+  //
+  // page
+
+page {
+  includeCSS {
+    // remove the cart default css
+    file3456     >
+    // overwrite the cart css of the Organiser
+    cartCSS = EXT:base_batberlin/res/html/org/shopping_cart/801/default.css
+  }
+}
+  // page

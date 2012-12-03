@@ -16,6 +16,10 @@
   background-color: #fff;
   padding: 0 0 3em 0;
 }
+.wtcart_cart .backbutton {
+  text-align:right;
+  margin:1em 0 0 0;
+}
 
 .wtcart_cart_header {
   background-color: #B02015;
@@ -47,11 +51,11 @@
 }
 .wtcart_cart_col1_2 {
   text-align: right;
-  width:320px;
+  width:440px;
 }
 
 .wtcart_cart_col2 {
-  width: 200px;
+  width:320px;
 }
 
 .wtcart_cart_col3 {

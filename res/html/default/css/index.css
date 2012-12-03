@@ -95,6 +95,7 @@ a.invert:visited.invert {
 p, ul {
   margin: 0 0 1em 0;
 }
+
 #box_footer p {
   margin:0;
 }
@@ -394,7 +395,7 @@ body {
   font-weight:normal;
 }
 
-.tx-browser-pi1 ul.azSelector,
+.tx-browser-pi1 ul.indexBrowser,
 .tx-browser-pi1 ul.modeSelector {
   max-width: 100%;
   margin: 0;
@@ -402,17 +403,17 @@ body {
   font-size:.8em;
 }
 
-* html .tx-browser-pi1 ul.azSelector,
+* html .tx-browser-pi1 ul.indexBrowser,
 * html .tx-browser-pi1 ul.modeSelector {
   width: 100%;     
 }
 
-.tx-browser-pi1 ul.azSelector li.last,
+.tx-browser-pi1 ul.indexBrowser li.last,
 .tx-browser-pi1 ul.modeSelector li.last {
   border-right:0;
 }
 
-.azSelector li {
+.indexBrowser li {
   display: block;
   margin: 0;
   padding: 0;
@@ -420,16 +421,16 @@ body {
   background-image: url(img/tab.gif);
   color: #888;
 }
-.azSelector li span {
+.indexBrowser li span {
   padding: 1px 0.5em;
   background-image: url(img/tab_right.gif);
   background-repeat: no-repeat;
   background-position: right top;
   display: block;
 }
-.azSelector li.selected {
+.indexBrowser li.selected {
 }
-.azSelector li a {
+.indexBrowser li a {
   background-image: url(img/tab.gif);
   background-repeat: no-repeat;
   background-position: left top;
@@ -438,29 +439,29 @@ body {
   font-weight:bold;
   text-decoration: none;
 }
-.azSelector li.tab-alle,
-.azSelector li.tab-alle a {
+.indexBrowser li.tab-alle,
+.indexBrowser li.tab-alle a {
   background-image: url(img/tab_first.gif);
 }
-.azSelector li.selected a,
-.azSelector li.selected a:hover{
+.indexBrowser li.selected a,
+.indexBrowser li.selected a:hover{
   background-image: url(img/tab_act.gif);
   text-decoration: underline;
 }
 
-.azSelector li a:hover{
+.indexBrowser li a:hover{
   background-image: url(img/tab_act.gif);
   text-decoration: underline;
 }
-.azSelector li a span {
+.indexBrowser li a span {
   background-image: url(img/tab_right.gif);
 }
-.azSelector li.selected a span,
-.azSelector li.selected a:hover span {
+.indexBrowser li.selected a span,
+.indexBrowser li.selected a:hover span {
   background-image: url(img/tab_act_right.gif);
 }
  
-.azSelector li a:hover span {
+.indexBrowser li a:hover span {
   background-image: url(img/tab_act_right.gif);
 }
 
@@ -519,14 +520,14 @@ body {
   background-image: url(img/tab_over_right.gif);
 }
 
-.tx-browser-pi1 .azSelector,
+.tx-browser-pi1 .indexBrowser,
 .tx-browser-pi1 .browsebox,
 .tx-browser-pi1 .searchbox,
 .tx-browser-pi1 .sortbox {
   padding: .6em 6px 0 6px;
   position:relative;
 }
-.tx-browser-pi1 .azSelector {
+.tx-browser-pi1 .indexBrowser {
   height:1.2em;
 }
 .tx-browser-pi1 .browsebox {

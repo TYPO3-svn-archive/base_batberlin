@@ -1,5 +1,5 @@
 0.4.9
-  12-12-02
+  12-12-03
   Improvements
   * #43535: Rename base_batBerlin to base_batberlin
             Effected files:
@@ -16,8 +16,34 @@
             * ext_emconf.php
             * ext_tables.php
             * locallang_db.xml
+  * #43564: Update for Browser 4.x: Index Browser
+            HTML templates
+            * rename azSelector as indexBrowser
+            * rename AZSELECTOR as INDEXBROWSER
+            CSS
+            * rename azSelector as indexBrowser
+            Effected files:
+            * res/html/default/css/index.css
+            * res/html/org/calendar/201
+              * default.tmpl
+              * default_wo_form.tmpl
+            * res/html/org/department/601/default.tmpl
+  * #43560: <div class="cal_datetime">|</div>: wrap removed
+            Effected files:
+            * res/html/org/calendar/201
+              * default.tmpl
+              * default_wo_form.tmpl
+  * #43561: own CSS for wt_cart, page TS configuration 
+            Effected files:
+            * static/org/shopping_cart/811/setup.txt
+  * #43562: New CSS class .wtcart_cart .backbutton
+            Effected files:
+            * res/html/org/shopping_cart/801/default.css  
   Bugfix
   * #43536: SQL query must be a COA for wt_cart
+            Effected files:
+            * static/org/shopping_cart/801/setup.txt
+  * #43563: &euro -> &euro;
             Effected files:
             * static/org/shopping_cart/801/setup.txt
 
