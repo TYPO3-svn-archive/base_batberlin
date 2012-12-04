@@ -1,6 +1,10 @@
 0.4.9
   12-12-03
   Improvements
+  * #43565: Improve wtcart Minicart
+            Effected files:
+            * res/html/org/shopping_cart/811/default.tmpl
+            * static/org/shopping_cart/811/setup.txt
   * #43535: Rename base_batBerlin to base_batberlin
             Effected files:
             * static/lib/setup.txt
