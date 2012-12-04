@@ -32,7 +32,11 @@ config {
   language        = de
   locale_all      = de_DE@euro, de_DE, de, ge
   metaCharset     = UTF-8
-  doctype         = xhtml_strict
+    // #43596, 121204, dwildt, 1-
+  // doctype         = xhtml_strict
+    // #43596, 121204, dwildt, 2+
+  doctype         = html5
+  xmlprologue     = none
   xhtml_cleaning  = all
   htmlTag_langKey = de
 

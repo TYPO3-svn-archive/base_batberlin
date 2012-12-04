@@ -1,6 +1,9 @@
 0.4.9
-  12-12-03
+  12-12-04
   Improvements
+  * #43600: HTML5 configuration
+            Effected files:
+            * static/setup.txt
   * #43565: Improve wtcart Minicart
             Effected files:
             * res/html/org/shopping_cart/811/default.tmpl
