@@ -65,45 +65,20 @@ plugin.tx_wtcart_pi3 {
   
   _LOCAL_LANG {
     default {
-      wtcart_ll_price (
+      wtcart_ll_minicart_empty (
+          <a title="Have a ticket reserved!" href="{$plugin.org.url.default.shopping_cart}">
+            <img  width="128" 
+              height="128" 
+              alt="Have a ticket reserved!" 
+              title="Have a ticket reserved!" 
+              src="typo3conf/ext/org/res/ticket.gif">
+          </a>
           <a title="Have a ticket reserved!" href="{$plugin.org.url.default.shopping_cart}">
             Have a ticket reserved!
           </a>
 )
-      wtcart_ll_empty (
-          <a title="Have a ticket reserved!" href="{$plugin.org.url.default.shopping_cart}">
-            <img  width="128" 
-              height="128" 
-              alt="Have a ticket reserved!" 
-              title="Have a ticket reserved!" 
-              src="typo3conf/ext/org/res/ticket.gif">
-          </a>
-)
-      wtcart_ll_minicart_empty (
-          <a title="Have a ticket reserved!" href="{$plugin.org.url.default.shopping_cart}">
-            <img  width="128" 
-              height="128" 
-              alt="Have a ticket reserved!" 
-              title="Have a ticket reserved!" 
-              src="typo3conf/ext/org/res/ticket.gif">
-          </a>
-)
     }
     de {
-      wtcart_ll_price (
-          <a title="Karte reservieren!" href="{$plugin.org.url.de.shopping_cart}">
-            Karte reservieren!
-          </a>
-)
-      wtcart_ll_empty (
-          <a title="Karte reservieren!" href="{$plugin.org.url.de.shopping_cart}">
-            <img  width="128" 
-              height="128" 
-              alt="Karte reservieren!" 
-              title="Karte reservieren!" 
-              src="typo3conf/ext/org/res/ticket.gif">
-          </a>
-)
       wtcart_ll_minicart_empty (
           <a title="Karte reservieren!" href="{$plugin.org.url.de.shopping_cart}">
             <img  width="128" 
@@ -111,6 +86,9 @@ plugin.tx_wtcart_pi3 {
               alt="Karte reservieren!" 
               title="Karte reservieren!" 
               src="typo3conf/ext/org/res/ticket.gif">
+          </a>
+          <a title="Karte reservieren!" href="{$plugin.org.url.de.shopping_cart}">
+            Karte reservieren!
           </a>
 )
     }
