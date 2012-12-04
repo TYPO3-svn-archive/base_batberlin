@@ -44,8 +44,10 @@ plugin.tx_browser_pi1 {
         filter {
           tx_org_cal.datetime {
             first_item {
-              stdWrap {
-                data = LLL:EXT:org/locallang_db.xml:filter_phrase.schedule.expired
+              cObject {
+                20 {
+                  data = LLL:EXT:org/locallang_db.xml:filter_phrase.schedule.expired
+                }
               }
             }
             area {

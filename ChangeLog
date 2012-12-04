@@ -32,6 +32,10 @@
               * default.tmpl
               * default_wo_form.tmpl
             * res/html/org/department/601/default.tmpl
+  * #43595: Update for Browser 4.x: first_item.stdWrap > first_item.cObject
+            Effected files:
+            * static/org/calendar/201/expired/setup.txt
+            * static/org/calendar/201/setup.txt
   * #43560: <div class="cal_datetime">|</div>: wrap removed
             Effected files:
             * res/html/org/calendar/201
