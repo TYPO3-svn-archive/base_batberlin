@@ -72,7 +72,7 @@ plugin.tx_wtcart_pi3 {
               alt="Have a ticket reserved!" 
               title="Have a ticket reserved!" 
               src="typo3conf/ext/org/res/ticket.gif">
-          </a>
+          </a><br />
           <a title="Have a ticket reserved!" href="{$plugin.org.url.default.shopping_cart}">
             Have a ticket reserved!
           </a>
@@ -86,7 +86,7 @@ plugin.tx_wtcart_pi3 {
               alt="Karte reservieren!" 
               title="Karte reservieren!" 
               src="typo3conf/ext/org/res/ticket.gif">
-          </a>
+          </a><br />
           <a title="Karte reservieren!" href="{$plugin.org.url.de.shopping_cart}">
             Karte reservieren!
           </a>
