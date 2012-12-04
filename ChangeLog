@@ -50,7 +50,9 @@
   * #43562: New CSS class .wtcart_cart .backbutton
             Effected files:
             * res/html/org/shopping_cart/801/default.css  
-  Bugfix
+  Bugfixes
+  * #43601: andWhere: if table isn't part of select statement
+            No file effected. All tables are part of the select statement.
   * #43536: SQL query must be a COA for wt_cart
             Effected files:
             * static/org/shopping_cart/801/setup.txt
