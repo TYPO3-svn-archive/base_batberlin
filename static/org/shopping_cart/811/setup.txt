@@ -59,6 +59,7 @@ plugin.tx_wtcart_pi3 {
             }
           }
         }
+        20 >
       }
     }
   }
