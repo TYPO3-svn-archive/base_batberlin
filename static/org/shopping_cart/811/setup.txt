@@ -65,6 +65,12 @@ plugin.tx_wtcart_pi3 {
   
   _LOCAL_LANG {
     default {
+      wtcart_ll_count_products_in_cart = ticket(s) selected
+      wtcart_ll_link (
+          <a title="Have a ticket reserved!" href="{$plugin.org.url.default.shopping_cart}">
+            Have a ticket reserved!
+          </a>
+)
       wtcart_ll_minicart_empty (
           <a title="Have a ticket reserved!" href="{$plugin.org.url.default.shopping_cart}">
             <img  width="128" 
@@ -73,12 +79,15 @@ plugin.tx_wtcart_pi3 {
               title="Have a ticket reserved!" 
               src="typo3conf/ext/org/res/ticket.gif">
           </a><br />
-          <a title="Have a ticket reserved!" href="{$plugin.org.url.default.shopping_cart}">
-            Have a ticket reserved!
-          </a>
 )
     }
     de {
+      wtcart_ll_count_products_in_cart = Ticket(s) ausgew&auml;hlt
+      wtcart_ll_link (
+          <a title="Karte reservieren!" href="{$plugin.org.url.de.shopping_cart}">
+            Karte reservieren!
+          </a>
+)
       wtcart_ll_minicart_empty (
           <a title="Karte reservieren!" href="{$plugin.org.url.de.shopping_cart}">
             <img  width="128" 
@@ -87,9 +96,6 @@ plugin.tx_wtcart_pi3 {
               title="Karte reservieren!" 
               src="typo3conf/ext/org/res/ticket.gif">
           </a><br />
-          <a title="Karte reservieren!" href="{$plugin.org.url.de.shopping_cart}">
-            Karte reservieren!
-          </a>
 )
     }
   }
