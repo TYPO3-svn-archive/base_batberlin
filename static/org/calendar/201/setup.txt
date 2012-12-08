@@ -280,6 +280,7 @@ plugin.tx_browser_pi1 {
 //        marker >
 //        marker < plugin.tx_browser_pi1.marker
         marker {
+          my_title >
           my_listview_page = TEXT
           my_listview_page {
             value = All Events &raquo;
@@ -307,8 +308,8 @@ plugin.tx_browser_pi1 {
           my_txorgcal_uid {
             value = ###TX_ORG_CAL.UID### XXX
           }
-          my_datesheet = COA
-          my_datesheet {
+          XXX_my_datesheet = COA
+          XXX_my_datesheet {
               // name of weekday
             10 = TEXT
             10 {
