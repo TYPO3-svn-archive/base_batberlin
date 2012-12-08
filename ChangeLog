@@ -1,6 +1,9 @@
 0.4.9
-  12-12-04
+  12-12-08
   Improvements
+  * #43785: TypoScript snippets for HTML templates
+            Effected files:
+            * static/org/calendar/201/setup.txt
   * #43600: HTML5 configuration
             Effected files:
             * static/setup.txt
