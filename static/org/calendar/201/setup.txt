@@ -634,9 +634,7 @@ plugin.tx_browser_pi1 {
               ###TX_ORG_CALENTRANCE.TITLE###
               ###MY_FORM_END###
               <div class="my_datesheet_socialbookmarks">
-                <div class="my_datesheet">
-                  ###MY_DATESHEET###
-                </div>
+                ###MY_DATESHEET###
                 <div class="socialbookmarks">
                   ###SOCIALMEDIA_BOOKMARKS###
                 </div>
