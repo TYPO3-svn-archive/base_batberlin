@@ -277,8 +277,8 @@ plugin.tx_browser_pi1 {
         displaySingle {
           image.file >
         }
-        marker >
-        marker < plugin.tx_browser_pi1.marker
+//        marker >
+//        marker < plugin.tx_browser_pi1.marker
         marker {
           my_listview_page = TEXT
           my_listview_page {
