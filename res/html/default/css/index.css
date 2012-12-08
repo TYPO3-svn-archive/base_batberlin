@@ -837,6 +837,10 @@ dl.csc-uploads-even {
   
   
 /* FORMS */
+.tx-browser-pi1 form.tx_org_cal-ticket {
+  padding: 0;
+}
+
 input,
 select,
 textarea {
@@ -856,10 +860,6 @@ input[type="submit"],
 select {
   background-color: #E3E3E3;
   border: 0 none;
-}
-input.quantity {
-  text-align:right;
-  width: 2em;
 }
 fieldset {
   margin:1em 0;
