@@ -629,6 +629,9 @@ plugin.tx_browser_pi1 {
           <div class="ui-widget ui-corner-all">
             <div class="ui-widget-content ui-corner-all">
               <!-- ###SINGLEBODY### begin --><!-- ###SINGLEBODYROW### begin -->
+              ###MY_FORM_BEGIN###
+              ###TX_ORG_CALENTRANCE.TITLE###
+              ###MY_FORM_END###
               <div class="my_datesheet_socialbookmarks">
                 <div class="my_datesheet">
                   ###MY_DATESHEET###
@@ -643,9 +646,6 @@ plugin.tx_browser_pi1 {
               ###TX_ORG_REPERTOIRE.TITLE###
               ###TX_ORG_REPERTOIRE.BODYTEXT###
               <div class="cleaner">&nbsp;</div>
-              ###MY_FORM_BEGIN###
-              ###TX_ORG_CALENTRANCE.TITLE###
-              ###MY_FORM_END###
               <!-- ###SINGLEBODYROW### end --><!-- ###SINGLEBODY### end -->
             </div>
 <!-- ###AREA_FOR_AJAX_LIST_01### end -->
