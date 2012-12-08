@@ -630,7 +630,9 @@ plugin.tx_browser_pi1 {
             <div class="ui-widget-content ui-corner-all">
               <!-- ###SINGLEBODY### begin --><!-- ###SINGLEBODYROW### begin -->
               <div class="my_datesheet_socialbookmarks">
-                ###MY_DATESHEET###
+                <div class="my_datesheet">
+                  ###MY_DATESHEET###
+                </div>
                 <div class="socialbookmarks">
                   ###SOCIALMEDIA_BOOKMARKS###
                 </div>
@@ -638,12 +640,8 @@ plugin.tx_browser_pi1 {
               <div class="cal_datetime">
                 ###TX_ORG_CAL.DATETIME###
               </div>
-              ###TX_ORG_CAL.SUBTITLE###
-              ###TX_ORG_CAL.TITLE###
-              ###TX_ORG_CAL.TEASER_SHORT###
-              ###TX_ORG_CAL.BODYTEXT###
-              ###TX_ORG_LOCATION.TITLE###
-              ###TX_ORG_EVENT.DOCUMENTS###
+              ###TX_ORG_REPERTOIRE.TITLE###
+              ###TX_ORG_REPERTOIRE.BODYTEXT###
               <div class="cleaner">&nbsp;</div>
               ###MY_FORM_BEGIN###
               ###TX_ORG_CALENTRANCE.TITLE###
