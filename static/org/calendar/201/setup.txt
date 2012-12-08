@@ -308,30 +308,6 @@ plugin.tx_browser_pi1 {
           my_txorgcal_uid {
             value = ###TX_ORG_CAL.UID### XXX
           }
-          XXX_my_datesheet = COA
-          XXX_my_datesheet {
-              // name of weekday
-            10 = TEXT
-            10 {
-              value     = ###TX_ORG_CAL.DATETIME###
-              strftime  = %a
-              wrap      = <div class="weekday">|</div>
-            }
-              // day of month as number
-            20 = TEXT
-            20 {
-              value     = ###TX_ORG_CAL.DATETIME###
-              strftime  = %d
-              wrap      = <div class="day_of_month">|</div>
-            }
-              // month
-            30 = TEXT
-            30 {
-              value     = ###TX_ORG_CAL.DATETIME###
-              strftime  = %b
-              wrap      = <div class="month">|</div>
-            }
-          }
           my_cart_legend = TEXT
           my_cart_legend {
             value = Order a ticket
@@ -650,9 +626,9 @@ plugin.tx_browser_pi1 {
 <!-- ###AREA_FOR_AJAX_LIST_01### end -->
             <!-- ###BACKBUTTON### begin -->
             <p class="backbutton">
-              ###BUTTON###
+              ###MY_BACK_BUTTON### | ###MY_LISTVIEW_PAGE###
             </p>
-          <!-- ###BACKBUTTON### end -->
+            <!-- ###BACKBUTTON### end -->
 <!-- ###AREA_FOR_AJAX_LIST_02### begin -->
           </div>
         </div>
