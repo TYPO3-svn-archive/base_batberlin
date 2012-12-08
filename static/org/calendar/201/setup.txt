@@ -370,6 +370,7 @@ plugin.tx_browser_pi1 {
           tx_org_repertoire.teaser_short,
           tx_org_repertoire.staff,
           tx_org_repertoire.bodytext,
+          tx_org_repertoire.length,
 
           tx_org_repertoire.documents_from_path,
           tx_org_repertoire.documents,
@@ -533,7 +534,7 @@ plugin.tx_browser_pi1 {
             stdWrap {
               prefixComment >
             }
-              // staff, bodytext
+              // staff, bodytext, length
             text {
               required  = 1
               wrap      = <div class="repertoire_bodytext">|</div>
@@ -549,6 +550,13 @@ plugin.tx_browser_pi1 {
               20 = TEXT
               20 {
                 value = ###TX_ORG_REPERTOIRE.BODYTEXT###
+              }
+                // length
+              30 = TEXT
+              30 {
+                value     = ###TX_ORG_REPERTOIRE.LENGTH###
+                required  = 1
+                wrap      = <br /><br />|
               }
             }
           }
