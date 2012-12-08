@@ -38,6 +38,7 @@ plugin.tx_browser_pi1 {
           }
         }
         marker {
+          my_title >
           my_datesheet {
             10 {
               typolink {
@@ -139,6 +140,8 @@ plugin.tx_browser_pi1 {
           title         < plugin.tx_browser_pi1.views.list.201.tx_org_cal.title.10.tx_org_repertoire
           title {
             20 {
+              value = ###TX_ORG_REPERTOIRE.PRODUCER###
+              lang.de = ###TX_ORG_REPERTOIRE.PRODUCER###
               noTrimWrap = | <span class="orange_bold">|</span>|
             }
           }
