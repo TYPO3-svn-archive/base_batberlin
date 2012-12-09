@@ -577,8 +577,8 @@ plugin.tx_browser_pi1 {
                 if {
                   isTrue    = ###TX_ORG_REPERTOIRE.PRODUCER###
                 }
-                value       = by ###TX_ORG_REPERTOIRE.PRODUCER###
-                lang.de     = von ###TX_ORG_REPERTOIRE.PRODUCER###
+                value       = ###TX_ORG_REPERTOIRE.PRODUCER###
+                lang.de     = ###TX_ORG_REPERTOIRE.PRODUCER###
                 noTrimWrap  = | <span class="orange_bold">|</span>|
               }
             }
