@@ -144,28 +144,23 @@ plugin.tx_browser_pi1 {
               first_item {
                 cObject {
                   20 {
-                    data = LLL:EXT:org/locallang_db.xml:filter_phrase.schedule.expired
+                    data = LLL:EXT:org/locallang_db.xml:filter_phrase.schedule
                   }
                 }
               }
               wrap = <span class="category_menu">|</span>
-              wrap {
-                item {
-                  //display_without_any_hit = 1
-                  stdWrap {
-                    htmlSpecialChars = 0
-                    crop >
-                  }
-                }
-              }
               order.field = uid
               area < plugin.tx_browser_pi1.displayList.master_templates.areas.sample_period
               area {
-                  interval {
-                  case = year
-                  year {
-                    start_period {
-                      stdWrap.value = 01.01.2010
+                interval {
+                  case = month
+                  month {
+                    times_stdWrap {
+                      value = 3
+                    }
+                    value_stdWrap {
+                      // %B: full name of the month
+                      strftime = %B
                     }
                   }
                 }
@@ -176,41 +171,27 @@ plugin.tx_browser_pi1 {
               first_item {
                 cObject {
                   20 {
-                    data = LLL:EXT:org/locallang_db.xml:filter_phrase.cal.title
+                    data >
+                    value = All Events
+                    lang {
+                      de = Alle Veranstaltungen
+                      en = All Events
+                    }
                   }
                 }
               }
               wrap = <span class="selectbox">|</span>
               wrap {
                 item {
-                  stdWrap {
-                    crop = 30 | ... | 1
+                  cObject {
+                    20 {
+                      crop = 30 | ... | 1
+                    }
                   }
                 }
               }
             }
           }
-          tx_org_caltype {
-            title < plugin.tx_browser_pi1.displayList.master_templates.selectbox
-            title {
-              first_item {
-                cObject {
-                  20 {
-                    data = LLL:EXT:org/locallang_db.xml:filter_phrase.caltype.title
-                  }
-                }
-              }
-              wrap = <span class="selectbox">|</span>
-              wrap {
-                item {
-                  stdWrap {
-                    crop = 30 | ... | 1
-                  }
-                }
-              }
-            }
-          }
-        }
           // marker and subparts will replaced in the HTML template before data handling
           // #43627, 121205, dwildt
         htmlSnippets =
