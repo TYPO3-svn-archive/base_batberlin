@@ -28,7 +28,7 @@ plugin.tx_browser_pi1 {
         }
         marker {
           my_title >
-          my_datesheet {
+          XXX_my_datesheet {
             10 {
               typolink {
                 parameter = {page:uid} - "linktosingle invert"
