@@ -7,6 +7,7 @@
   // plugin.tx_automaketemplate_pi1
   // plugin.tx_rlmptmplselector_pi1
   // plugin.tx_browser_pi1
+  // plugin.tx_wtcart_pi3
   // tt_content.table
   // page
   // Search Engine Optimisation
@@ -30,7 +31,10 @@ config {
 )  
 
   language        = de
-  locale_all      = de_DE@euro, de_DE, de, ge
+    // 121209, dwildt, 1-
+  //locale_all      = de_DE@euro, de_DE, de, ge
+    // 121209, dwildt, 1+
+  locale_all = de_DE
   metaCharset     = UTF-8
     // #43596, 121204, dwildt, 1-
   // doctype         = xhtml_strict
@@ -202,6 +206,16 @@ plugin.tx_browser_pi1 {
   }
 }
   // plugin.tx_browser_pi1
+
+
+
+
+  ///////////////////////////////////////////
+  //
+  // plugin.tx_wtcart_pi3
+
+plugin.tx_wtcart_pi3 = USER_INT
+  // plugin.tx_wtcart_pi3
 
 
 
