@@ -16,17 +16,6 @@
 
 plugin.tx_browser_pi1 {
   
-  template {
-    extensions {
-      org {
-        calendar {
-          name      = +BAT: +Org: Calendar
-          file      = EXT:base_batberlin/res/html/org/calendar/201/default.tmpl
-        }
-      }
-    }
-  }
-
   views {
     list {
       201 = +BAT: +Org: Calendar
