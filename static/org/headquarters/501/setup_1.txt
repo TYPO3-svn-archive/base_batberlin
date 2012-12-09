@@ -16,66 +16,32 @@
 
 plugin.tx_browser_pi1 {
   
-  views {
-    list {
-      501 = +BAT: +Org: Headquarters
-      501 {
-        name    = +BAT: +Org: Headquarters
-        comment (
-          DIESES TEMPLATE IST NICHT FUER DIE LISTENANSICHT VORGESEHEN
-        )
-        select (
-          tx_org_headquarters.title
-        )
-          // marker and subparts will replaced in the HTML template before data handling
-          // #43627, 121205, dwildt
-        htmlSnippets =
-        htmlSnippets {
-          marker {
-            filter = TEXT
-            filter {
-              value (
-              <div class="filter">
-                <div class="period_menu">
-                  ###TX_ORG_CAL.DATETIME###
-                </div>
-                ###TX_ORG_CAL.TITLE### ###TX_ORG_CALTYPE.TITLE###
-              </div>
-)
-            }
-          }
-          subparts {
-            listview = TEXT
-            listview {
-              value (
-            <div id="c###TT_CONTENT.UID###-listview-###MODE###" class="###VIEW###view ###VIEW###view-content ###VIEW###view-###MODE### ###VIEW###view-content-###MODE###">
-              <!-- ###LISTBODY### begin --><!-- ###LISTBODYITEM### begin -->
-              <div class="record01">
-                <div class="socialbookmarks">
-                  ###SOCIALMEDIA_BOOKMARKS###
-                </div>
-                ###MY_DATESHEET###
-                <div class="cal_datetime">
-                  ###TX_ORG_CAL.DATETIME###
-                </div>
-                <div class="cal_title">
-                  ###TX_ORG_REPERTOIRE.TITLE###
-                </div>
-                ###TX_ORG_REPERTOIRE.SUBTITLE###
-                ###TX_ORG_REPERTOIRE.TEASER_SHORT###
-              </div>
-              <div class="cleaner">&nbsp;</div><!-- ###LISTBODYITEM### end --><!-- ###LISTBODY### end -->
-            </div> <!-- /listview -->
-)
-            }
-          }
+  template {
+    extensions {
+      org {
+        headquarters {
+          name      = Org: headquarters (bat)
+          file      = EXT:base_batberlin/res/html/org/headquarters/501/default.tmpl
         }
       }
     }
-    single {
-      501 = +BAT: +Org: Headquarters
+  }
+  views {
+    list {
+      501 = headquarters bat
       501 {
-        name    = +BAT: +Org: Headquarters
+        comment (
+          DIESES TEMPLATE IST NICHT FUER DIE LISTENANSICHT VORGESEHEN
+        )
+        name    = headquarters (bat)
+        select (
+          tx_org_headquarters.title
+        )
+      }
+    }
+    single {
+      501 = headquarters bat
+      501 {
         general_stdWrap {
           parseFunc {
             nonTypoTagStdWrap {
@@ -394,54 +360,6 @@ plugin.tx_browser_pi1 {
                 }
                 additionalParams = &tx_browser_pi1[departmentUid]=###TX_ORG_DEPARTMENT.UID###&###CHASH###
               }
-            }
-          }
-        }
-          // marker and subparts will replaced in the HTML template before data handling
-          // #43627, 121205, dwildt
-        htmlSnippets =
-        htmlSnippets {
-          subparts {
-            singleview = TEXT
-            singleview {
-              value (
-<!-- ###AREA_FOR_AJAX_LIST_01### begin -->
-        <div id="c###TT_CONTENT.UID###-singleview-###MODE###" class="singleview singleview-###MODE###">
-          ###RECORD_BROWSER###
-          <div class="ui-widget ui-corner-all">
-            <div class="ui-widget-content ui-corner-all">
-              <!-- ###SINGLEBODY### begin --><!-- ###SINGLEBODYROW### begin -->
-              <div class="socialbookmarks">
-                ###SOCIALMEDIA_BOOKMARKS###
-              </div>
-              ###TX_ORG_HEADQUARTERS.TITLE###
-              ###TX_ORG_HEADQUARTERS.IMAGE###
-              ###TX_ORG_HEADQUARTERS.MAIL_POSTCODE###
-
-              ###TX_ORG_HEADQUARTERS.POSTBOX_POSTBOX###
-              ###TX_ORG_HEADQUARTERS.TELEPHONE###
-              ###TX_ORG_HEADQUARTERS.PUBTRANS_STOP###
-              ###MY_PHRASE_DEPARTMENTS###
-              <ul>
-                ###TX_ORG_DEPARTMENT.TITLE###
-              </ul>
-              ###TX_ORG_HEADQUARTERS.MAIL_EMBEDDEDCODE###
-              ###TX_ORG_HEADQUARTERS.DOCUMENTS###
-<!-- ###AREA_FOR_AJAX_LIST_01### end -->
-<!-- ###AREA_FOR_AJAX_LIST_02### begin -->
-              <div class="backgroundBottom">&nbsp;</div><!-- ###SINGLEBODYROW### end --><!-- ###SINGLEBODY### end -->
-            </div>
-<!-- ###AREA_FOR_AJAX_LIST_01### end -->
-            <!-- ###BACKBUTTON### begin -->
-            <p class="backbutton">
-              ###MY_BACK_BUTTON### | ###MY_LISTVIEW_PAGE###
-            </p>
-            <!-- ###BACKBUTTON### end -->
-<!-- ###AREA_FOR_AJAX_LIST_02### begin -->
-          </div>
-        </div>
-<!-- ###AREA_FOR_AJAX_LIST_02### end -->
-)
             }
           }
         }

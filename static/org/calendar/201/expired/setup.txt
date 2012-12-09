@@ -118,5 +118,16 @@ plugin.tx_browser_pi1 {
       }
     }
   }
+  
+  _LOCAL_LANG {
+    de {
+      list_mode_201_titleTag      = bat-Studiotheater der HfS-Berlin: Spielplan (Archiv)
+      list_mode_201_keywords      = Hochschule für Schauspiel, Ernst Busch, Berlin, bat, Studiotheater, Spielplan, Archiv
+      list_mode_201_summary       = bat-Studiotheater der Hochschule für Schauspiel "Ernst Busch" Berlin: Spielplan (Archiv)
+      single_mode_201_titleTag    = bat-Studiotheater der HfS-Berlin: ###TX_ORG_REPERTOIRE.TITLE###
+      single_mode_201_keywords    = ###TX_ORG_REPERTOIRE.KEYWORDS###
+      single_mode_201_summary     = ###TX_ORG_REPERTOIRE.DESCRIPTION###
+    }
+  }
 }
   // plugin.tx_browser_pi1
