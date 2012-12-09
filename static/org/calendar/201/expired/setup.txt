@@ -25,36 +25,6 @@ plugin.tx_browser_pi1 {
         andWhere = tx_org_cal.datetime < UNIX_TIMESTAMP() AND tx_org_cal.type LIKE 'tx_org_repertoire'
         tx_org_repertoire.teaser_short.30.typolink.parameter = {$plugin.org.pages.calendar_expired} - linktosingle
         tx_org_repertoire.title.10.typolink.parameter = {$plugin.org.pages.calendar_expired} - linktosingle
-        filter {
-          tx_org_cal {
-            datetime < plugin.tx_browser_pi1.displayList.master_templates.category_menu
-            datetime {
-              first_item {
-                cObject {
-                  20 {
-                    data = LLL:EXT:org/locallang_db.xml:filter_phrase.schedule.expired
-                  }
-                }
-              }
-              wrap = <span class="category_menu">|</span>
-              order.field = uid
-              area < plugin.tx_browser_pi1.displayList.master_templates.areas.sample_period
-              area {
-                interval {
-                  case = year
-                  year {
-                    start_period {
-                      stdWrap {
-                        value = 01.01.2010
-
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
       }
     }
     single {
