@@ -16,13 +16,25 @@
 
 plugin.tx_browser_pi1 {
   
+  template {
+    extensions {
+      org {
+        calendar_wo_form {
+          name      = +BAT: +Org Calendar +expired
+          file      = EXT:base_batberlin/res/html/org/calendar/201/default_wo_form.tmpl
+          csvViews  = 201
+        }
+      }
+    }
+  }
+
   views {
     list {
       201 = +BAT: +Org Calendar +expired
       201 {
         name = +BAT: +Org Calendar +expired
         orderBy = tx_org_cal.datetime DESC
-        XXX_tx_org_cal {
+        tx_org_cal {
           datetime = TEXT
           datetime {
             value     = ###TX_ORG_CAL.DATETIME###
