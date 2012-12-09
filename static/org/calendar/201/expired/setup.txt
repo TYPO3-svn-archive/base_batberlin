@@ -204,6 +204,7 @@ plugin.tx_browser_pi1 {
                       de = Alle Kategorien
                       en = All Categeories
                     }
+                    append >
                   }
                 }
               }
