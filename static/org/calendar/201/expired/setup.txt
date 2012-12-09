@@ -28,6 +28,11 @@ plugin.tx_browser_pi1 {
                 strftime = %b %y
               }
             }
+            20 {
+              30 {
+                strftime = %b %y
+              }
+            }
           }
         }
         orderBy = tx_org_cal.datetime DESC
@@ -88,6 +93,11 @@ plugin.tx_browser_pi1 {
           my_form_end >
           my_datesheet {
             10 {
+              30 {
+                strftime = %b %y
+              }
+            }
+            20 {
               30 {
                 strftime = %b %y
               }

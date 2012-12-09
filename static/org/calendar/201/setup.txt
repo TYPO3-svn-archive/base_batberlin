@@ -28,35 +28,6 @@ plugin.tx_browser_pi1 {
         }
         marker {
           my_title >
-          XXX_my_datesheet {
-            10 {
-              typolink {
-                parameter = {page:uid} - "linktosingle invert"
-                parameter {
-                  insertData = 1
-                }
-                additionalParams = &tx_browser_pi1[calendarUid]=###TX_ORG_CAL.UID###&###CHASH###
-              }
-            }
-            20 {
-              typolink {      
-                parameter = {page:uid} - "linktosingle invert"
-                parameter {
-                  insertData = 1
-                }
-                additionalParams = &tx_browser_pi1[calendarUid]=###TX_ORG_CAL.UID###&###CHASH###
-              }
-            }
-            30 {
-              typolink {
-                parameter = {page:uid} - "linktosingle invert"
-                parameter {
-                  insertData = 1
-                }
-                additionalParams = &tx_browser_pi1[calendarUid]=###TX_ORG_CAL.UID###&###CHASH###
-              }
-            }
-          }
         }
         select >
         select (
