@@ -28,10 +28,9 @@ plugin.tx_browser_pi1 {
   }
 
   views {
-    list {
-      201 = +BAT: +Org: Calendar
+      201 = +BAT: +Org Calendar +expired
       201 {
-        name    = +BAT: +Org: Calendar
+        name = +BAT: +Org Calendar +expired
         displayList {
           image {
             file = {$base_batberlin.path.alternate_image}
@@ -79,7 +78,8 @@ plugin.tx_browser_pi1 {
           tx_org_repertoire.teaser_short,
           tx_org_repertoire.bodytext
         )
-        andWhere  = tx_org_cal.datetime > UNIX_TIMESTAMP() AND tx_org_cal.type LIKE 'tx_org_repertoire'
+        andWhere  = tx_org_cal.datetime < UNIX_TIMESTAMP() AND tx_org_cal.type LIKE 'tx_org_repertoire'
+        orderBy = tx_org_cal.datetime DESC
         tx_org_cal {
           datetime = TEXT
           datetime {
@@ -154,7 +154,7 @@ plugin.tx_browser_pi1 {
               first_item {
                 cObject {
                   20 {
-                    data = LLL:EXT:org/locallang_db.xml:filter_phrase.schedule
+                    data = LLL:EXT:org/locallang_db.xml:filter_phrase.schedule.expired
                   }
                 }
               }
@@ -171,15 +171,11 @@ plugin.tx_browser_pi1 {
               order.field = uid
               area < plugin.tx_browser_pi1.displayList.master_templates.areas.sample_period
               area {
-                interval {
-                  case = month
-                  month {
-                    times_stdWrap {
-                      value = 3
-                    }
-                    value_stdWrap {
-                      // %B: full name of the month
-                      strftime = %B
+                  interval {
+                  case = year
+                  year {
+                    start_period {
+                      stdWrap.value = 01.01.2010
                     }
                   }
                 }
