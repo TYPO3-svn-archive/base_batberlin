@@ -600,6 +600,40 @@ plugin.tx_browser_pi1 {
             }
           }
         }
+        filter {
+          tx_org_cal {
+            title {
+              first_item {
+                cObject {
+                  20 {
+                    data >
+                    value = All events 
+                    lang {
+                      de = Alle Veranstaltungen
+                      en = All events
+                    }
+                  }
+                }
+              }
+            }
+          }
+          tx_org_caltype {
+            title {
+              first_item {
+                cObject {
+                  20 {
+                    data >
+                    value = All categories 
+                    lang {
+                      de = Alle Kategorien
+                      en = All categories
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
           // marker and subparts will replaced in the HTML template before data handling
           // #43627, 121205, dwildt
         htmlSnippets =
