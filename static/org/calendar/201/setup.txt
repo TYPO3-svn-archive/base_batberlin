@@ -145,6 +145,7 @@ plugin.tx_browser_pi1 {
                 cObject {
                   20 {
                     data = LLL:EXT:org/locallang_db.xml:filter_phrase.schedule
+                    append >
                   }
                 }
               }
@@ -177,6 +178,7 @@ plugin.tx_browser_pi1 {
                       de = Alle Veranstaltungen
                       en = All Events
                     }
+                    append >
                   }
                 }
               }
@@ -204,6 +206,7 @@ plugin.tx_browser_pi1 {
                       de = Alle Kategorien
                       en = All Categeories
                     }
+                    append >
                   }
                 }
               }
