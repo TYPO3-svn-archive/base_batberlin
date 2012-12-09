@@ -23,8 +23,10 @@ plugin.tx_browser_pi1 {
         name = +BAT: +Org Calendar +expired
         marker {
           my_datesheet {
-            30 {
-              strftime = %b %y
+            10 {
+              30 {
+                strftime = %b %y
+              }
             }
           }
         }
@@ -85,8 +87,10 @@ plugin.tx_browser_pi1 {
           my_form_begin >
           my_form_end >
           my_datesheet {
-            30 {
-              strftime = %b %y
+            10 {
+              30 {
+                strftime = %b %y
+              }
             }
           }
           my_listview_page {
