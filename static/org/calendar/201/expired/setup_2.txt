@@ -1,0 +1,646 @@
+
+
+  ////////////////////////////////////////
+  //
+  // INDEX
+
+  // plugin.tx_browser_pi1
+  //    views
+  //      201: +BAT: +Org: Calendar
+
+
+
+  ////////////////////////////////////////
+  //
+  // plugin.tx_browser_pi1
+
+plugin.tx_browser_pi1 {
+  
+  views {
+    list {
+      201 = +BAT: +Org Calendar +expired
+      201 {
+        name = +BAT: +Org Calendar +expired
+        displayList {
+          image {
+            file = {$base_batberlin.path.alternate_image}
+          }
+        }
+        marker {
+          my_title >
+          my_datesheet {
+            10 {
+              typolink {
+                parameter = {page:uid} - "linktosingle invert"
+                parameter {
+                  insertData = 1
+                }
+                additionalParams = &tx_browser_pi1[calendarUid]=###TX_ORG_CAL.UID###&###CHASH###
+              }
+            }
+            20 {
+              typolink {      
+                parameter = {page:uid} - "linktosingle invert"
+                parameter {
+                  insertData = 1
+                }
+                additionalParams = &tx_browser_pi1[calendarUid]=###TX_ORG_CAL.UID###&###CHASH###
+              }
+            }
+            30 {
+              typolink {
+                parameter = {page:uid} - "linktosingle invert"
+                parameter {
+                  insertData = 1
+                }
+                additionalParams = &tx_browser_pi1[calendarUid]=###TX_ORG_CAL.UID###&###CHASH###
+              }
+            }
+          }
+        }
+        select >
+        select (
+          tx_org_cal.datetime,
+          tx_org_caltype.title,
+          tx_org_repertoire.title,
+          tx_org_repertoire.subtitle,
+          tx_org_repertoire.producer,
+          tx_org_repertoire.teaser_short,
+          tx_org_repertoire.bodytext
+        )
+        andWhere  = tx_org_cal.datetime < UNIX_TIMESTAMP() AND tx_org_cal.type LIKE 'tx_org_repertoire'
+        orderBy = tx_org_cal.datetime DESC
+        tx_org_cal {
+          datetime = TEXT
+          datetime {
+            value     = ###TX_ORG_CAL.DATETIME###
+            lang      >
+          }
+        }
+          // 121106, dwildt, +
+        tx_org_cal {
+          datetime >
+            // datetime, caltype
+          datetime = COA
+          datetime {
+              // datetime
+            10 = TEXT
+            10 {
+              value = ###TX_ORG_CAL.DATETIME###
+              strftime = %A, %d. %B, %H:%M Uhr
+            }
+              // caltype
+            20 = TEXT
+            20 {
+              required    = 1
+              noTrimWrap  = | - ||
+              value       = ###TX_ORG_CALTYPE.TITLE###
+            }
+          }
+          teaser_short {
+            10 {
+              default {
+                10 >
+              }
+              cal_page {
+                10 >
+              }
+              calurl {
+                10 >
+              }
+              tx_org_event {
+                10 >
+              }
+              tx_org_repertoire {
+                10 >
+              }
+            }
+          }
+        }
+        tx_org_repertoire {
+          subtitle      < plugin.tx_browser_pi1.views.list.201.tx_org_cal.subtitle.10.tx_org_repertoire
+          subtitle {
+            wrap = <div class="cal_subtitle cal_subtitle_repertoire"><span class="orange_bold">|</span></div>
+          }
+          teaser_short  < plugin.tx_browser_pi1.views.list.201.tx_org_cal.teaser_short.10.tx_org_repertoire
+          teaser_short {
+              // 121106, dwildt, +
+            10 >
+          }
+          title         < plugin.tx_browser_pi1.views.list.201.tx_org_cal.title.10.tx_org_repertoire
+          title {
+            20 {
+              value = ###TX_ORG_REPERTOIRE.PRODUCER###
+              lang.de = ###TX_ORG_REPERTOIRE.PRODUCER###
+              noTrimWrap = | <span class="orange_bold">|</span>|
+            }
+          }
+        }
+        filter >
+        filter {
+          tx_org_cal {
+            datetime < plugin.tx_browser_pi1.displayList.master_templates.category_menu
+            datetime {
+              first_item {
+                cObject {
+                  20 {
+                    data = LLL:EXT:org/locallang_db.xml:filter_phrase.schedule
+                  }
+                }
+              }
+              wrap = <span class="category_menu">|</span>
+              order.field = uid
+              area < plugin.tx_browser_pi1.displayList.master_templates.areas.sample_period
+              area {
+                interval {
+                  case = month
+                  month {
+                    times_stdWrap {
+                      value = 3
+                    }
+                    value_stdWrap {
+                      // %B: full name of the month
+                      strftime = %B
+                    }
+                  }
+                }
+              }
+            }
+            title < plugin.tx_browser_pi1.displayList.master_templates.selectbox
+            title {
+              first_item {
+                cObject {
+                  20 {
+                    data >
+                    value = All Events
+                    lang {
+                      de = Alle Veranstaltungen
+                      en = All Events
+                    }
+                  }
+                }
+              }
+              wrap = <span class="selectbox">|</span>
+              wrap {
+                item {
+                  cObject {
+                    20 {
+                      crop = 30 | ... | 1
+                    }
+                  }
+                }
+              }
+            }
+          }
+          tx_org_caltype {
+            title < plugin.tx_browser_pi1.displayList.master_templates.selectbox
+            title {
+              first_item {
+                cObject {
+                  20 {
+                    data >
+                    value = All Categeories
+                    lang {
+                      de = Alle Kategorien
+                      en = All Categeories
+                    }
+                    append >
+                  }
+                }
+              }
+              wrap = <span class="selectbox">|</span>
+              wrap {
+                item {
+                  cObject {
+                    20 {
+                      crop = 30 | ... | 1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+          // marker and subparts will replaced in the HTML template before data handling
+          // #43627, 121205, dwildt
+        htmlSnippets =
+        htmlSnippets {
+          marker {
+            filter = TEXT
+            filter {
+              value (
+              <div class="filter">
+                <div class="period_menu">
+                  ###TX_ORG_CAL.DATETIME###
+                </div>
+                ###TX_ORG_CAL.TITLE### ###TX_ORG_CALTYPE.TITLE###
+              </div>
+)
+            }
+          }
+          subparts {
+            listview = TEXT
+            listview {
+              value (
+            <div id="c###TT_CONTENT.UID###-listview-###MODE###" class="###VIEW###view ###VIEW###view-content ###VIEW###view-###MODE### ###VIEW###view-content-###MODE###">
+              <!-- ###LISTBODY### begin --><!-- ###LISTBODYITEM### begin -->
+              <div class="record01">
+                <div class="socialbookmarks">
+                  ###SOCIALMEDIA_BOOKMARKS###
+                </div>
+                ###MY_DATESHEET###
+                <div class="cal_datetime">
+                  ###TX_ORG_CAL.DATETIME###
+                </div>
+                <div class="cal_title">
+                  ###TX_ORG_REPERTOIRE.TITLE###
+                </div>
+                ###TX_ORG_REPERTOIRE.SUBTITLE###
+                ###TX_ORG_REPERTOIRE.TEASER_SHORT###
+              </div>
+              <div class="cleaner">&nbsp;</div><!-- ###LISTBODYITEM### end --><!-- ###LISTBODY### end -->
+            </div> <!-- /listview -->
+)
+            }
+          }
+        }
+      }
+    }
+    single {
+      201 = +BAT: +Org Calendar +expired
+      201 {
+        displaySingle < plugin.tx_browser_pi1.displaySingle
+        displaySingle {
+          image.file >
+        }
+//        marker >
+//        marker < plugin.tx_browser_pi1.marker
+        marker {
+          my_title >
+          my_listview_page = TEXT
+          my_listview_page {
+            value = All Events &raquo;
+            lang.de = Spielplan &raquo; 
+            typolink {
+              parameter = {$plugin.org.pages.calendar}
+              title {
+                value = All Events
+                lang.de = Spielplan des bat-Studiotheaters der HfS
+              }
+            }
+          }
+          my_singleview_title = TEXT
+          my_singleview_title {
+            value   = Event
+            lang.de = Veranstaltung
+            wrap    = <div class="header01">|</div>
+          }
+          my_txorgcal_datetime = TEXT
+          my_txorgcal_datetime {
+            value = ###TX_ORG_CAL.DATETIME###
+            strftime = %a %d %b %H:%M Uhr
+          }
+          my_txorgcal_uid = TEXT
+          my_txorgcal_uid {
+            value = ###TX_ORG_CAL.UID### XXX
+          }
+        }
+        select >
+        select (
+          tx_org_cal.datetime,
+          tx_org_cal.uid,
+          tx_org_caltype.title,
+          tx_org_calentrance.title,
+          tx_org_calentrance.value,
+          tx_org_calentrance.uid,
+          tx_org_location.uid,
+          tx_org_location.title,
+
+          tx_org_repertoire.title,
+          tx_org_repertoire.subtitle,
+          tx_org_repertoire.producer,
+          tx_org_repertoire.teaser_short,
+          tx_org_repertoire.staff,
+          tx_org_repertoire.bodytext,
+          tx_org_repertoire.length,
+
+          tx_org_repertoire.documents_from_path,
+          tx_org_repertoire.documents,
+          tx_org_repertoire.documentslayout,
+          tx_org_repertoire.documentscaption,
+          tx_org_repertoire.documentssize, 
+
+          tx_org_repertoire.image,
+          tx_org_repertoire.imagecaption,
+          tx_org_repertoire.imageseo,
+          tx_org_repertoire.imagewidth,
+          tx_org_repertoire.imageheight,
+          tx_org_repertoire.imageorient,
+          tx_org_repertoire.imagecols,
+          tx_org_repertoire.imageborder,
+          tx_org_repertoire.image_frames,
+          tx_org_repertoire.image_link,
+          tx_org_repertoire.image_zoom,
+          tx_org_repertoire.image_noRows,
+          tx_org_repertoire.image_effects,
+          tx_org_repertoire.image_compression,
+
+          tx_org_repertoire.description,
+          tx_org_repertoire.keywords,
+          tx_org_repertoire.uid
+        )
+        andWhere  = tx_org_cal.datetime < UNIX_TIMESTAMP() AND tx_org_cal.type LIKE 'tx_org_repertoire'
+        orderBy {
+          tx_org_calentrance (
+            SELECT    tx_org_calentrance.uid   AS 'uid', 
+                      tx_org_calentrance.title AS 'title',
+                      tx_org_calentrance.value AS 'value'
+            FROM      tx_org_calentrance,
+                      tx_org_cal_mm_tx_org_calentrance
+            WHERE     tx_org_cal_mm_tx_org_calentrance.uid_local    = ###UID_LOCAL###
+            AND       tx_org_cal_mm_tx_org_calentrance.uid_foreign  = tx_org_calentrance.uid
+            ORDER BY  tx_org_cal_mm_tx_org_calentrance.sorting
+)
+        }
+        tx_org_cal >
+        tx_org_cal {
+          datetime = TEXT
+          datetime {
+            value = ###TX_ORG_CAL.DATETIME###
+            strftime = %A, %d. %B, %H:%M Uhr
+          }
+            // 121101, dwildt, +
+          datetime >
+            // datetime, caltype
+          datetime = COA
+          datetime {
+              // datetime
+            10 = TEXT
+            10 {
+              value = ###TX_ORG_CAL.DATETIME###
+              strftime = %A, %d. %B, %H:%M Uhr
+            }
+              // caltype
+            20 = TEXT
+            20 {
+              required    = 1
+              noTrimWrap  = | - ||
+              value       = ###TX_ORG_CALTYPE.TITLE###
+            }
+          }
+          location = COA
+          location {
+            wrap = <div style="background:#EEE;font-size:.8em;line-height:1em;overflow:hidden;padding:.6em;text-align:center;width:100px;">|</div>
+            10 = TEXT
+            10 {
+              value = Location
+              lang.de = Ort
+              wrap = <strong>|</strong><br />
+            }
+            11 = TEXT
+            11 {
+              value = ###TX_ORG_LOCATION.TITLE###
+              typolink {
+                parameter = {$plugin.org.pages.location}
+                parameter {
+                  insertData = 1
+                }
+                additionalParams = &tx_browser_pi1[locationUid]=###TX_ORG_LOCATION.UID###&###CHASH###
+              }
+            }
+          }
+        }
+        tx_org_calentrance >
+        tx_org_calentrance {
+          title = COA
+          title {
+            10 = TEXT
+            10 {
+              value = ###TX_ORG_CALENTRANCE.UID###
+              wrap  = <option value="|">
+            }
+            11 = TEXT
+            11 {
+              value = ###TX_ORG_CALENTRANCE.TITLE###
+              wrap  = |
+            }
+            12 = TEXT
+            12 {
+              value = (###TX_ORG_CALENTRANCE.VALUE### EUR)
+              noTrimWrap  = | |</option>|
+            }
+          }
+        }
+        tx_org_repertoire {
+          bodytext < tt_content.image.20
+          bodytext {
+            imgList.field >
+            imgList = ###TX_ORG_REPERTOIRE.IMAGE###
+            imgPath = uploads/tx_org/
+            1 {
+              file {
+                width.field >
+                width   = ###TX_ORG_REPERTOIRE.IMAGEWIDTH###
+                height  = ###TX_ORG_REPERTOIRE.IMAGEHEIGHT###
+              }
+              altText.field                 >
+              altText                       = ###TX_ORG_REPERTOIRE.IMAGESEO###
+              titleText.field               >
+              titleText                     = ###TX_ORG_REPERTOIRE.IMAGESEO###
+              imageLinkWrap {
+                ifEmpty {
+                  typolink.parameter.field  >
+                  typolink.parameter        = ###TX_ORG_REPERTOIRE.IMAGE_LINK###
+                }
+                typolink.parameter.field    >
+                typolink.parameter          = ###TX_ORG_REPERTOIRE.IMAGE_LINK###
+                enable.field                >
+                enable                      = ###TX_ORG_REPERTOIRE.IMAGE_ZOOM###
+                width                       = 1000;
+                height                      = 800m;
+                //JSwindow = 0
+              }
+            }
+            textPos.field           >
+            textPos                 = ###TX_ORG_REPERTOIRE.IMAGEORIENT###
+            equalH                  >
+            image_compression.field >
+            image_compression       = ###TX_ORG_REPERTOIRE.IMAGE_COMPRESSION###
+            image_effects.field     >
+            image_effects           = ###TX_ORG_REPERTOIRE.IMAGE_EFFECTS###
+            noRows.field            >
+            noRows                  = ###TX_ORG_REPERTOIRE.IMAGE_NOROWS###
+            cols.field              >
+            cols                    = ###TX_ORG_REPERTOIRE.IMAGECOLS###
+            border.field            >
+            border                  = ###TX_ORG_REPERTOIRE.IMAGEBORDER###
+            caption.1.field         >
+            caption.1.value         = ###TX_ORG_REPERTOIRE.IMAGECAPTION###
+            captionAlign.field      >
+            captionAlign            = ###TX_ORG_REPERTOIRE.IMAGECAPTION_POSITION###
+            layout {
+              key.field        >
+              key              = ###TX_ORG_REPERTOIRE.IMAGEORIENT###
+              default.value    = <div class="csc-textpic csc-textpic-center csc-textpic-above###CLASSES###">###IMAGES###</div><div class="csc-textpic-clear"><!-- --></div>###TEXT###
+            }
+            stdWrap {
+              prefixComment >
+            }
+              // staff, bodytext, length
+            text {
+              required  = 1
+              wrap      = <div class="repertoire_bodytext">|</div>
+              stdWrap.parseFunc < lib.parseFunc_RTE
+                // staff
+              10 = TEXT
+              10 {
+                required    = 1
+                value       = ###TX_ORG_REPERTOIRE.STAFF###
+                noTrimWrap  = |<strong>|</strong> |
+              }
+                // bodytext
+              20 = TEXT
+              20 {
+                value = ###TX_ORG_REPERTOIRE.BODYTEXT###
+              }
+                // length
+              30 = TEXT
+              30 {
+                value     = ###TX_ORG_REPERTOIRE.LENGTH###
+                required  = 1
+                wrap      = <br /><br />|
+              }
+            }
+          }
+            // title, producer, subtitle
+          title >
+          title = COA
+          title {
+              // title, producer
+            10 = COA
+            10 {
+              wrap  = <h1>|</h1>
+              10 = TEXT
+              10 {
+                value = ###TX_ORG_REPERTOIRE.TITLE###
+              }
+              20 = TEXT
+              20 {
+                if {
+                  isTrue    = ###TX_ORG_REPERTOIRE.PRODUCER###
+                }
+                value       = ###TX_ORG_REPERTOIRE.PRODUCER###
+                lang.de     = ###TX_ORG_REPERTOIRE.PRODUCER###
+                noTrimWrap  = | <span class="orange_bold">|</span>|
+              }
+            }
+              // caltype
+            20 = TEXT
+            20 {
+              required  = 1
+              wrap      = <div class="cal_caltype cal_caltype_repertoire">|</div>
+              value     = ###TX_ORG_CALTYPE.TITLE###
+            }
+              // 121101
+            20 >
+              // subtitle
+            30 = TEXT
+            30 {
+              required  = 1
+              value     = ###TX_ORG_REPERTOIRE.SUBTITLE###
+              wrap      = <div class="cal_subtitle cal_subtitle_repertoire"><span class="orange_bold">|</span></div>
+            }
+          }
+        }
+        filter {
+          tx_org_cal {
+            title {
+              first_item {
+                cObject {
+                  20 {
+                    data >
+                    value = All events 
+                    lang {
+                      de = Alle Veranstaltungen
+                      en = All events
+                    }
+                  }
+                }
+              }
+            }
+          }
+          tx_org_caltype {
+            title {
+              first_item {
+                cObject {
+                  20 {
+                    data >
+                    value = All categories 
+                    lang {
+                      de = Alle Kategorien
+                      en = All categories
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+          // marker and subparts will replaced in the HTML template before data handling
+          // #43627, 121205, dwildt
+        htmlSnippets =
+        htmlSnippets {
+          subparts {
+            singleview = TEXT
+            singleview {
+              value (
+<!-- ###AREA_FOR_AJAX_LIST_01### begin -->
+        <div id="c###TT_CONTENT.UID###-singleview-###MODE###" class="singleview singleview-###MODE###">
+          ###RECORD_BROWSER###
+          <div class="ui-widget ui-corner-all">
+            <div class="ui-widget-content ui-corner-all">
+              <!-- ###SINGLEBODY### begin --><!-- ###SINGLEBODYROW### begin -->
+              <div class="my_datesheet_socialbookmarks">
+                ###MY_DATESHEET###
+                <div class="socialbookmarks">
+                  ###SOCIALMEDIA_BOOKMARKS###
+                </div>
+              </div>
+              <div class="cal_datetime">
+                ###TX_ORG_CAL.DATETIME###
+              </div>
+              ###TX_ORG_REPERTOIRE.TITLE###
+              ###TX_ORG_REPERTOIRE.BODYTEXT###
+              <div class="cleaner">&nbsp;</div>
+              <!-- ###SINGLEBODYROW### end --><!-- ###SINGLEBODY### end -->
+            </div>
+<!-- ###AREA_FOR_AJAX_LIST_01### end -->
+            <!-- ###BACKBUTTON### begin -->
+            <p class="backbutton">
+              ###MY_BACK_BUTTON### | ###MY_LISTVIEW_PAGE###
+            </p>
+            <!-- ###BACKBUTTON### end -->
+<!-- ###AREA_FOR_AJAX_LIST_02### begin -->
+          </div>
+        </div>
+<!-- ###AREA_FOR_AJAX_LIST_02### end -->
+)
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  _LOCAL_LANG {
+    de {
+      list_mode_201_titleTag      = bat-Studiotheater der HfS-Berlin: Spielplan
+      list_mode_201_keywords      = Hochschule für Schauspiel, Ernst Busch, Berlin, bat, Studiotheater, Spielplan
+      list_mode_201_summary       = bat-Studiotheater der Hochschule für Schauspiel "Ernst Busch" Berlin: Spielplan
+      single_mode_201_titleTag    = bat-Studiotheater der HfS-Berlin: ###TX_ORG_REPERTOIRE.TITLE###
+      single_mode_201_keywords    = ###TX_ORG_REPERTOIRE.KEYWORDS###
+      single_mode_201_summary     = ###TX_ORG_REPERTOIRE.DESCRIPTION###
+    }
+  }
+}
+  // plugin.tx_browser_pi1
