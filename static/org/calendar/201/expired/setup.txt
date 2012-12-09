@@ -68,7 +68,7 @@ plugin.tx_browser_pi1 {
           my_form_begin >
           my_form_end >
         }
-        andWhere = tx_org_cal.datetime < UNIX_TIMESTAMP() AND tx_org_cal.type LIKE 'tx_org_repertoire'      }
+        andWhere = tx_org_cal.datetime < UNIX_TIMESTAMP() AND tx_org_cal.type LIKE 'tx_org_repertoire'
       }
     }
   }
