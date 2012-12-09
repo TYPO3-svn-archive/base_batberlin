@@ -70,6 +70,23 @@ plugin.tx_browser_pi1 {
             }
           }
         }
+          // marker and subparts will replaced in the HTML template before data handling
+          // #43627, 121205, dwildt
+        htmlSnippets =
+        htmlSnippets {
+          subparts {
+            listview = TEXT
+            listview {
+              value (
+            <div id="c###TT_CONTENT.UID###-listview-###MODE###" class="###VIEW###view ###VIEW###view-content ###VIEW###view-###MODE### ###VIEW###view-content-###MODE###">
+              <!-- ###LISTBODY### begin --><!-- ###LISTBODYITEM### begin -->
+              Dieses Template ist nicht f&uuml;r die Listenansicht vorgesehen!
+              <!-- ###LISTBODYITEM### end --><!-- ###LISTBODY### end -->
+            </div> <!-- /listview -->
+)
+            }
+          }
+        }
       }
     }
     single {

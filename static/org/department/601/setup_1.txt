@@ -17,11 +17,23 @@
 
 plugin.tx_browser_pi1 {
   
+  template {
+    extensions {
+      tt_news >
+      org {
+        department {
+          name      = Org: department bat
+          file      = EXT:base_batberlin/res/html/org/department/601/default.tmpl
+        }
+      }
+    }
+  }
+
   views {
     list {
-      601 = +BAT: +Org: Department
+      601 = department bat
       601 {
-        name    = +BAT: +Org: Department
+        name    = department bat
         general_stdWrap {
           parseFunc {
             nonTypoTagStdWrap {
@@ -49,42 +61,11 @@ plugin.tx_browser_pi1 {
         andWhere  = tx_org_headquarters.uid = {$myConst.tx_org_headquarter.belforter_str}
         groupBy   = tx_org_departmentcat.title
         orderBy   = tx_org_departmentcat.sorting, tx_org_department.sorting
-          // marker and subparts will replaced in the HTML template before data handling
-          // #43627, 121205, dwildt
-        htmlSnippets =
-        htmlSnippets {
-          marker {
-            filter = TEXT
-            filter {
-              value (
-              <div class="filter">
-                ###TX_ORG_DEPARTMENTCAT.TITLE###
-                ###TX_ORG_HEADQUARTERS.TITLE###
-              </div>
-)
-            }
-          }
-          subparts {
-            listview = TEXT
-            listview {
-              value (
-            <div id="c###TT_CONTENT.UID###-listview-###MODE###" class="###VIEW###view ###VIEW###view-content ###VIEW###view-###MODE### ###VIEW###view-content-###MODE###">
-              <!-- ###LISTBODY### begin --><!-- ###LISTBODYITEM### begin -->
-              <p>
-                ###TX_ORG_DEPARTMENT.TITLE###
-              </p>
-              <!-- ###LISTBODYITEM### end --><!-- ###LISTBODY### end -->
-            </div> <!-- /listview -->
-)
-            }
-          }
-        }
       }
     }
     single {
-      601 = +BAT: +Org: Department
+      601 = department bat
       601 {
-        name    = +BAT: +Org: Department
         general_stdWrap {
           parseFunc {
             nonTypoTagStdWrap {
@@ -295,51 +276,10 @@ plugin.tx_browser_pi1 {
             }
           }
         }
-           // marker and subparts will replaced in the HTML template before data handling
-          // #43627, 121205, dwildt
-        htmlSnippets =
-        htmlSnippets {
-          subparts {
-            singleview = TEXT
-            singleview {
-              value (
-<!-- ###AREA_FOR_AJAX_LIST_01### begin -->
-        <div id="c###TT_CONTENT.UID###-singleview-###MODE###" class="singleview singleview-###MODE###">
-          ###RECORD_BROWSER###
-          <div class="ui-widget ui-corner-all">
-            <div class="ui-widget-content ui-corner-all">
-              <!-- ###SINGLEBODY### begin --><!-- ###SINGLEBODYROW### begin -->
-              <div class="socialbookmarks">
-                ###SOCIALMEDIA_BOOKMARKS###
-              </div>
-              <h1>
-                ###TX_ORG_DEPARTMENT.TITLE###
-              </h1>
-              <p>
-                ###TX_ORG_HEADQUARTERS.MAIL_ADDRESS###
-              </p>
-              ###FE_USERS.FIRST_NAME###
-              ###TX_ORG_DEPARTMENT.TELEPHONE###
-              <!-- ###SINGLEBODYROW### end --><!-- ###SINGLEBODY### end -->
-            </div>
-<!-- ###AREA_FOR_AJAX_LIST_01### end -->
-            <!-- ###BACKBUTTON### begin -->
-            <p class="backbutton">
-              ###MY_BACK_BUTTON### | ###MY_LISTVIEW_PAGE###
-            </p>
-            <!-- ###BACKBUTTON### end -->
-<!-- ###AREA_FOR_AJAX_LIST_02### begin -->
-          </div>
-        </div>
-<!-- ###AREA_FOR_AJAX_LIST_02### end -->
-)
-            }
-          }
-        }
       }
     }
   }
- 
+  
   _LOCAL_LANG {
     de {
       list_mode_601               = bat Studiotheater der HfS-Berlin: Abteilungen

@@ -227,14 +227,40 @@ plugin.tx_browser_pi1 {
           // #43627, 121205, dwildt
         htmlSnippets =
         htmlSnippets {
+          marker {
+            filter = TEXT
+            filter {
+              value (
+              <div class="filter">
+                <div class="period_menu">
+                  ###TX_ORG_CAL.DATETIME###
+                </div>
+                ###TX_ORG_CAL.TITLE### ###TX_ORG_CALTYPE.TITLE###
+              </div>
+)
+            }
+          }
           subparts {
             listview = TEXT
             listview {
               value (
             <div id="c###TT_CONTENT.UID###-listview-###MODE###" class="###VIEW###view ###VIEW###view-content ###VIEW###view-###MODE### ###VIEW###view-content-###MODE###">
               <!-- ###LISTBODY### begin --><!-- ###LISTBODYITEM### begin -->
-              Dieses Template ist nicht f&uuml;r die Listenansicht vorgesehen!
-              <!-- ###LISTBODYITEM### end --><!-- ###LISTBODY### end -->
+              <div class="record01">
+                <div class="socialbookmarks">
+                  ###SOCIALMEDIA_BOOKMARKS###
+                </div>
+                ###MY_DATESHEET###
+                <div class="cal_datetime">
+                  ###TX_ORG_CAL.DATETIME###
+                </div>
+                <div class="cal_title">
+                  ###TX_ORG_REPERTOIRE.TITLE###
+                </div>
+                ###TX_ORG_REPERTOIRE.SUBTITLE###
+                ###TX_ORG_REPERTOIRE.TEASER_SHORT###
+              </div>
+              <div class="cleaner">&nbsp;</div><!-- ###LISTBODYITEM### end --><!-- ###LISTBODY### end -->
             </div> <!-- /listview -->
 )
             }
