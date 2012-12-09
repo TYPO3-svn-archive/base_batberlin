@@ -854,6 +854,7 @@ input,
 textarea {
   border: 1px solid #CCC;
 }
+button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"],
