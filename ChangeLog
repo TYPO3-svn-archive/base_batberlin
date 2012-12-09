@@ -1,3 +1,8 @@
+2.2.0
+  12-12-09
+  Improvements
+  * #00000: Move version from 0.4.9 to 2.2.0
+            2.2.0 corresponds with the Organiser version
 0.4.9
   12-12-08
   Improvements
@@ -54,6 +59,9 @@
             Effected files:
             * res/html/org/shopping_cart/801/default.css  
   Bugfixes
+  * #43808: Reintegration of group by feature from 3.x to 4.x
+            Effected files:
+            * static/org/department/601/setup.txt
   * #43601: andWhere: if table isn't part of select statement
             No file effected. All tables are part of the select statement.
   * #43536: SQL query must be a COA for wt_cart
