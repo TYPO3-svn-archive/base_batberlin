@@ -294,50 +294,6 @@ plugin.tx_browser_pi1 {
           my_txorgcal_uid {
             value = ###TX_ORG_CAL.UID### XXX
           }
-          my_cart_legend = TEXT
-          my_cart_legend {
-            value = Order a ticket
-            lang {
-              de = Tickets bestellen
-            }
-          }
-          my_cart_button = TEXT
-          my_cart_button {
-            value = Into the cart
-            lang {
-              de = Karten reservieren
-            }
-          }
-          my_cart_quantity = TEXT
-          my_cart_quantity {
-            value = ###SESSION###
-              // 110125, dwildt, session has a bug
-            value = 1
-            session {
-              // [String] Name of the session array (i.e. ses)
-              key  = ses
-              // [String] Key of the session data array (i.e. wt_cart_cart)
-              name = wt_cart_cart
-              // [String] Key of the element in the session array (i.e. amount)
-              getFrom  = amount
-              // [String] Key of the element in the data array, we want the value for (i.e. amount).
-              whereElement {
-                // [String] Key of the element in the data array for a where clause (i.e. uid). This is no SQL!
-                key = puid
-                // [String] Value of the element in the data array for a where clause (i.e. ###SHOWUID###). This is no SQL!
-                value = ###SHOWUID###
-              }
-              getDefault = 1
-              // [String] Default value, if there isn't any session data
-            }
-          }
-          my_cart_page_url = TEXT
-          my_cart_page_url {
-            typolink {
-              parameter = {$plugin.org.pages.shopping_cart}
-              returnLast = url
-            }
-          }
         }
         select >
         select (
@@ -634,9 +590,6 @@ plugin.tx_browser_pi1 {
           <div class="ui-widget ui-corner-all">
             <div class="ui-widget-content ui-corner-all">
               <!-- ###SINGLEBODY### begin --><!-- ###SINGLEBODYROW### begin -->
-              ###MY_FORM_BEGIN###
-              ###TX_ORG_CALENTRANCE.TITLE###
-              ###MY_FORM_END###
               <div class="my_datesheet_socialbookmarks">
                 ###MY_DATESHEET###
                 <div class="socialbookmarks">
