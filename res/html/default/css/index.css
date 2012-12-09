@@ -669,7 +669,7 @@ body {
   color:white;
 }
 .tx-browser-pi1 .singleview .my_datesheet_expired {
-  background:#CCC;
+/*  background:#CCC; 121209, dwildt */
 }
 .tx-browser-pi1 .singleview .my_datesheet_socialbookmarks {
   color:white;
