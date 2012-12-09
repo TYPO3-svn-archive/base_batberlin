@@ -257,7 +257,7 @@ plugin.tx_browser_pi1 {
       }
     }
     single {
-      201 = +BAT: +Org: Calendar
+      201 = +BAT: +Org Calendar +expired
       201 {
         displaySingle < plugin.tx_browser_pi1.displaySingle
         displaySingle {
@@ -383,7 +383,7 @@ plugin.tx_browser_pi1 {
           tx_org_repertoire.keywords,
           tx_org_repertoire.uid
         )
-        andWhere  = tx_org_cal.datetime > UNIX_TIMESTAMP() AND tx_org_cal.type LIKE 'tx_org_repertoire'
+        andWhere  = tx_org_cal.datetime < UNIX_TIMESTAMP() AND tx_org_cal.type LIKE 'tx_org_repertoire'
         orderBy {
           tx_org_calentrance (
             SELECT    tx_org_calentrance.uid   AS 'uid', 
