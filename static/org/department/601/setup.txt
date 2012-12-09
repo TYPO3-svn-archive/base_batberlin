@@ -69,11 +69,22 @@ plugin.tx_browser_pi1 {
             listview {
               value (
             <div id="c###TT_CONTENT.UID###-listview-###MODE###" class="###VIEW###view ###VIEW###view-content ###VIEW###view-###MODE### ###VIEW###view-content-###MODE###">
+              <!-- ###GROUPBY### begin -->
+              <!-- ###GROUPBYHEAD### begin -->
+              <h2>
+                ###GROUPBY_GROUPNAME###
+              </h2>
+              <!-- ###GROUPBYHEAD### end -->
+              <!-- ###GROUPBYBODY### begin -->
               <!-- ###LISTBODY### begin --><!-- ###LISTBODYITEM### begin -->
               <p>
                 ###TX_ORG_DEPARTMENT.TITLE###
               </p>
               <!-- ###LISTBODYITEM### end --><!-- ###LISTBODY### end -->
+              <p>&nbsp;</p>
+              <!-- ###GROUPBYBODY### end -->
+              <!-- ###GROUPBY### end -->
+              <div class="backgroundBottom">&nbsp;</div>
             </div> <!-- /listview -->
 )
             }
