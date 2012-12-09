@@ -18,9 +18,9 @@ plugin.tx_browser_pi1 {
   
   views {
     list {
-      611 = Department bat (margin)
+      611 = +BAT: +Org: Department (margin)
       611 {
-        name    = Abteilungen (bat) - Rand
+        name    = +BAT: +Org: Department (margin)
         showUid = departmentUid
         autoconfig < plugin.tx_browser_pi1.autoconfig
         autoconfig {
@@ -154,14 +154,11 @@ plugin.tx_browser_pi1 {
       }
     }
     single {
-      611 = Department (margin)
+      611 = +BAT: +Org: Department (margin)
       611 {
+        name    = +BAT: +Org: Department (margin)
         comment = Dieses Plugin soll nicht in der Single-Ansicht aufgerufen werden
-        template < plugin.tx_browser_pi1.template
-        template {
-          file = EXT:org/res/html/department/611/default.tmpl
-        }
-        select = tx_org_department.title
+        select  = tx_org_department.title
           // marker and subparts will replaced in the HTML template before data handling
           // #43627, 121205, dwildt
         htmlSnippets =

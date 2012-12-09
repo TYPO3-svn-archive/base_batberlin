@@ -16,11 +16,22 @@
 
 plugin.tx_browser_pi1 {
   
+  template {
+    extensions {
+      org {
+        calendar_margin {
+          name      = Org: calendar (bat) - margin
+          file      = EXT:base_batberlin/res/html/org/calendar/211/default.tmpl
+        }
+      }
+    }
+  }
+
   views {
     list {
-      211 = +BAT: +Org: Calendar (margin)
+      211 = calendar bat (margin)
       211 {
-        name    = +BAT: +Org: Calendar (margin)
+        name    = calendar bat - Rand
         marker < plugin.tx_browser_pi1.marker
         marker {
           my_listview_title {
@@ -96,49 +107,9 @@ plugin.tx_browser_pi1 {
             }
           }
         }
-          // marker and subparts will replaced in the HTML template before data handling
-          // #43627, 121205, dwildt
-        htmlSnippets =
-        htmlSnippets {
-          subparts {
-            listview = TEXT
-            listview {
-              value (
-            <div id="c###TT_CONTENT.UID###-listview-###MODE###" class="###VIEW###view ###VIEW###view-content ###VIEW###view-###MODE### ###VIEW###view-content-###MODE###">
-              <!-- ###LISTBODY### begin --><!-- ###LISTBODYITEM### begin -->
-              ###TX_ORG_CAL.DATETIME###
-              <!-- ###LISTBODYITEM### end --><!-- ###LISTBODY### end -->
-            </div> <!-- /listview -->
-)
-            }
-          }
-        }
-      }
-    }
-    single {
-      211 = +BAT: +Org: Calendar (margin)
-      211 {
-        name    = +BAT: +Org: Calendar (margin)
-        comment = Dieses Plugin soll nicht in der Single-Ansicht aufgerufen werden
-        select  = tx_org_department.title
-          // marker and subparts will replaced in the HTML template before data handling
-          // #43627, 121205, dwildt
-        htmlSnippets =
-        htmlSnippets {
-          subparts {
-            singleview = TEXT
-            singleview {
-              value (
-                Browser - TYPO3 ohne PHP<br />
-                <br />
-                F&uuml;r dieses Plugin gibt es keine Detailansicht.<br />
-                Gebe im Plugin bitte die Pid der Seite an, die die Single-Ansicht darstellt.
-)
-            }
-          }
-        }
       }
     }
   }
+  
 }
   // plugin.tx_browser_pi1
