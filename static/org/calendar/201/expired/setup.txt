@@ -84,7 +84,6 @@ plugin.tx_browser_pi1 {
             <div class="ui-widget-content ui-corner-all">
               <!-- ###SINGLEBODY### begin --><!-- ###SINGLEBODYROW### begin -->
               <div class="my_datesheet_socialbookmarks">
-                ###MY_DATESHEET###
                 <div class="socialbookmarks">
                   ###SOCIALMEDIA_BOOKMARKS###
                 </div>
