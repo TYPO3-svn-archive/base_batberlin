@@ -146,6 +146,7 @@ plugin.tx_browser_pi1 {
               <!-- ###LISTBODY### begin --><!-- ###LISTBODYITEM### begin -->
               ###TX_ORG_DEPARTMENT.TITLE###
               <!-- ###LISTBODYITEM### end --><!-- ###LISTBODY### end -->
+              ###MY_LISTVIEW_PAGE###
             </div> <!-- /listview -->
 )
             }
