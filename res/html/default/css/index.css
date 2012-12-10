@@ -70,6 +70,10 @@ body {
   background-color: #B02015;
 }
 
+button {
+  cursor:pointer;
+}
+
 .cleaner {
   clear: both;
   height: 1px;
