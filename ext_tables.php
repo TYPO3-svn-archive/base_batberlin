@@ -56,6 +56,7 @@ t3lib_extMgm::addStaticFile($_EXTKEY,'static/css_styled_content/',  '+BAT: CSS S
 
   // bat organiser
 t3lib_extMgm::addStaticFile($_EXTKEY,'static/org/department/601/',        '+BAT: +Org Abteilung');
+t3lib_extMgm::addStaticFile($_EXTKEY,'static/org/department/611/',        '+BAT: +Org Abteilung - Rand');
 t3lib_extMgm::addStaticFile($_EXTKEY,'static/org/calendar/201/',          '+BAT: +Org Kalender');
 t3lib_extMgm::addStaticFile($_EXTKEY,'static/org/calendar/201/expired/',  '+BAT: +Org Kalender +Archiv');
 t3lib_extMgm::addStaticFile($_EXTKEY,'static/org/calendar/211/',          '+BAT: +Org Kalender - Rand');
