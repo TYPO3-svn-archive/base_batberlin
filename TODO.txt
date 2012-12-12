@@ -1,0 +1,3 @@
+2.3.0
+  Feature
+  * #43897: HTML5 / CSS Styles Content 4.7

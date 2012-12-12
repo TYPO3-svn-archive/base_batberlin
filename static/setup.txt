@@ -36,11 +36,10 @@ config {
     // 121209, dwildt, 1+
   locale_all = de_DE
   metaCharset     = UTF-8
-    // #43596, 121204, dwildt, 1-
-  // doctype         = xhtml_strict
-    // #43596, 121204, dwildt, 2+
-  doctype         = html5
-  xmlprologue     = none
+  doctype         = xhtml_strict
+    // #43897, 121204, dwildt, 2-
+  //doctype         = html5
+  //xmlprologue     = none
   xhtml_cleaning  = all
   htmlTag_langKey = de
 
