@@ -1,8 +1,11 @@
 3.0.0
   12-12-14
   Improvements
+  * #43985: tt_content.image: improvements
+            Effected files:
+            * static/org/repertoire/331/setup.txt
   * #00000: Move version from 0.4.9 to 3.0.0
-            2.2.0 corresponds with the Organiser version
+            3.0.0 corresponds with the Organiser version
 
 0.4.9
   12-12-08

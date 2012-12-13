@@ -81,9 +81,11 @@ plugin.tx_browser_pi1 {
           bodytext {
             text >
               // staff, bodytext
+            text = COA
             text {
               required  = 1
-              wrap      = <div class="repertoire_bodytext">|</div>
+                // #43985
+              wrap      = <div class="csc-textpic-text repertoire_bodytext">|</div>
               stdWrap.parseFunc < lib.parseFunc_RTE
                 // staff
               10 = TEXT
