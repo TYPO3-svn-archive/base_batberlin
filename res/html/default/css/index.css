@@ -441,6 +441,9 @@ body {
   font-weight:bold;
   text-decoration: none;
 }
+.ui-tabs-nav  li a .without_href {
+  color:#888888;
+}
 
 /* modeSelector */
 #content-main .modeSelector {
