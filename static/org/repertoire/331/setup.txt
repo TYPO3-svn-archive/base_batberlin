@@ -45,7 +45,7 @@ plugin.tx_browser_pi1 {
               wrap {
                 item {
                   cObject {
-                    30
+                    30 >
                   }
                 }
               }
