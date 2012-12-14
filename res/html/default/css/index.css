@@ -420,6 +420,11 @@ body {
   border-right:0;
 }
 
+.ui-tabs {
+  height:1.2em;
+  padding:0.6em 6px 0;
+  position: relative;
+}
 .ui-tabs-nav li,
 .indexBrowser li {
   display: block;
