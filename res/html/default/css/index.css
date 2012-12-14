@@ -432,14 +432,17 @@ body {
   padding: 1px 0.5em;
   display: block;
 }
-.ui-tabs-nav  li.selected,
-.indexBrowser li.selected {
-}
 .ui-tabs-nav  li a,
 .indexBrowser li a {
   display: block;
   font-weight:bold;
   text-decoration: none;
+}
+.ui-tabs-nav  li.selected a,
+.indexBrowser li.selected a,
+.ui-tabs-nav  li.selected a:hover,
+.indexBrowser li.selected a:hover {
+  text-decoration: underline;  
 }
 .ui-tabs-nav  li a.without-href {
   color:#888888;
