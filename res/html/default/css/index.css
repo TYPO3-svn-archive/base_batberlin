@@ -616,11 +616,6 @@ body {
   color:white;
 }
 
-.tx-browser-pi1 .my_datesheet_expired {
-  background:#B02015;
-  color:white;
-}
-
 .tx-browser-pi1 .listview .cal_datetime {
   font-size:.8em;
   font-weight:bold;
@@ -663,7 +658,7 @@ body {
   color:white;
 }
 .tx-browser-pi1 .singleview .my_datesheet_expired {
-/*  background:#CCC; 121209, dwildt */
+  background:#CCC;
 }
 .tx-browser-pi1 .singleview .my_datesheet_socialbookmarks {
   color:white;
