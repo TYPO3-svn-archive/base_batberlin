@@ -31,6 +31,29 @@ plugin.tx_browser_pi1 {
             }
           }
         }
+        filter {
+          tx_org_cal {
+            datetime {
+              first_item {
+                cObject {
+                  20 {
+                    append >
+                  }
+                }
+              }
+              wrap = <span class="selectbox">|</span>
+              wrap {
+                item {
+                  cObject {
+                    30
+                  }
+                }
+              }
+              order.field = uid
+              area < plugin.tx_browser_pi1.displayList.master_templates.areas.sample_period
+            }
+          }
+        }
       }
     }
     single {
