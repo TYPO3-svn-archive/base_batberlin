@@ -400,6 +400,7 @@ body {
 }
 
 .tx-browser-pi1 ul.indexBrowser,
+.tx-browser-pi1 ul.ui-tabs,
 .tx-browser-pi1 ul.modeSelector {
   max-width: 100%;
   margin: 0;
@@ -408,65 +409,37 @@ body {
 }
 
 * html .tx-browser-pi1 ul.indexBrowser,
+* html .tx-browser-pi1 ul.ui-tabs-nav,
 * html .tx-browser-pi1 ul.modeSelector {
   width: 100%;     
 }
 
 .tx-browser-pi1 ul.indexBrowser li.last,
+.tx-browser-pi1 ul.ui-tabs-nav li.last,
 .tx-browser-pi1 ul.modeSelector li.last {
   border-right:0;
 }
 
+.ui-tabs-nav li,
 .indexBrowser li {
   display: block;
   margin: 0;
   padding: 0;
   float: left;
-  background-image: url(img/tab.gif);
-  color: #888;
 }
+.ui-tabs-nav li span,
 .indexBrowser li span {
   padding: 1px 0.5em;
-  background-image: url(img/tab_right.gif);
-  background-repeat: no-repeat;
-  background-position: right top;
   display: block;
 }
+.ui-tabs-nav  li.selected,
 .indexBrowser li.selected {
 }
+.ui-tabs-nav  li a,
 .indexBrowser li a {
-  background-image: url(img/tab.gif);
-  background-repeat: no-repeat;
-  background-position: left top;
-  color:#444;
   display: block;
   font-weight:bold;
   text-decoration: none;
-}
-.indexBrowser li.tab-alle,
-.indexBrowser li.tab-alle a {
-  background-image: url(img/tab_first.gif);
-}
-.indexBrowser li.selected a,
-.indexBrowser li.selected a:hover{
-  background-image: url(img/tab_act.gif);
-  text-decoration: underline;
-}
-
-.indexBrowser li a:hover{
-  background-image: url(img/tab_act.gif);
-  text-decoration: underline;
-}
-.indexBrowser li a span {
-  background-image: url(img/tab_right.gif);
-}
-.indexBrowser li.selected a span,
-.indexBrowser li.selected a:hover span {
-  background-image: url(img/tab_act_right.gif);
-}
- 
-.indexBrowser li a:hover span {
-  background-image: url(img/tab_act_right.gif);
 }
 
 /* modeSelector */
