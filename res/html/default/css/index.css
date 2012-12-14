@@ -612,6 +612,11 @@ body {
   font-size: 1em;
 }
 .tx-browser-pi1 .my_datesheet {
+  background:#CCC;
+  color:white;
+}
+
+.tx-browser-pi1 .my_datesheet_expired {
   background:#B02015;
   color:white;
 }
