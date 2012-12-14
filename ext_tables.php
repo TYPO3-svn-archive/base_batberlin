@@ -52,7 +52,6 @@ switch($llStatic) {
   // bat template
 t3lib_extMgm::addStaticFile($_EXTKEY,'static/lib/',                 'BAT: Library');
 t3lib_extMgm::addStaticFile($_EXTKEY,'static/',                     '+BAT: Template');
-t3lib_extMgm::addStaticFile($_EXTKEY,'static/css_styled_content/',  '+BAT: CSS Styled Content');
 
   // bat organiser
 t3lib_extMgm::addStaticFile($_EXTKEY,'static/org/department/601/',        '+BAT: +Org Abteilung');
