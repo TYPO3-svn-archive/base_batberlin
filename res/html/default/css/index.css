@@ -441,7 +441,7 @@ body {
   font-weight:bold;
   text-decoration: none;
 }
-.ui-tabs-nav  li a.without_href {
+.ui-tabs-nav  li a.without-href {
   color:#888888;
 }
 
