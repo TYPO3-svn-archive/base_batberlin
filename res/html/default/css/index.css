@@ -400,7 +400,7 @@ body {
 }
 
 .tx-browser-pi1 ul.indexBrowser,
-.tx-browser-pi1 ul.ui-tabs,
+.tx-browser-pi1 ul.ui-tabs-nav,
 .tx-browser-pi1 ul.modeSelector {
   max-width: 100%;
   margin: 0;
@@ -443,6 +443,7 @@ body {
 }
 .ui-tabs-nav  li a.without-href {
   color:#888888;
+  font-weight:normal;
 }
 
 /* modeSelector */
