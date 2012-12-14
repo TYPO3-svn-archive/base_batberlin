@@ -3,6 +3,7 @@
   Improvements
   * #43985: tt_content.image: improvements
             Effected files:
+            * static/org/calendar/201/setup.txt
             * static/org/repertoire/331/setup.txt
   * #00000: Move version from 0.4.9 to 3.0.0
             3.0.0 corresponds with the Organiser version
